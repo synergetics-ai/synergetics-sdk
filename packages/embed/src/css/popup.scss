@@ -1,0 +1,53 @@
+@import 'includes/spinner';
+@import 'includes/close';
+@import 'includes/iframe';
+@import 'includes/mobile';
+@import 'includes/fullsize';
+@import 'includes/backdrop';
+
+.tf-v1-popup {
+  @include backdrop;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .tf-v1-iframe-wrapper {
+    position: relative;
+    transition: opacity 0.25s ease-in-out;
+    min-width: 360px;
+    min-height: 360px;
+
+    iframe {
+      @include iframe(border-radius, 8px);
+    }
+  }
+
+  .tf-v1-close {
+    @include close(-34px, 0);
+  }
+
+  .tf-v1-spinner {
+    @include spinner;
+  }
+}
+
+@include mobile {
+  .tf-v1-popup {
+    @include fullsize;
+
+    .tf-v1-iframe-wrapper {
+      position: relative;
+      transition: opacity 0.25s ease-in-out;
+      min-width: 100%;
+      min-height: 100%;
+
+      iframe {
+        border-radius: 0;
+      }
+    }
+
+    .tf-v1-close {
+      @include close;
+    }
+  }
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Static HTML Demo</title>
+    <style>
+      #wrapper {
+        width: 600px;
+        height: 400px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="wrapper"
+      data-tf-widget="HLjqXS5W"
+      data-tf-source="localhost"
+      data-tf-on-ready="onsynergeticsReady"
+      data-tf-on-started="onsynergeticsStarted"
+      data-tf-on-submit="onsynergeticsSubmit"
+      data-tf-on-question-changed="onsynergeticsQuestionChanged"
+      data-tf-on-height-changed="onsynergeticsHeightChanged"
+      data-tf-on-close="onsynergeticsClose"
+      data-tf-on-ending-button-click="onsynergeticsEndingButtonClick"
+    ></div>
+    <button
+      data-tf-popup="HLjqXS5W"
+      data-tf-source="localhost"
+      data-tf-on-ready="onsynergeticsReady"
+      data-tf-on-started="onsynergeticsStarted"
+      data-tf-on-submit="onsynergeticsSubmit"
+      data-tf-on-question-changed="onsynergeticsQuestionChanged"
+      data-tf-on-close="onsynergeticsClose"
+      data-tf-on-ending-button-click="onsynergeticsEndingButtonClick"
+    >
+      open popup
+    </button>
+    <script src="./lib/embed.js"></script>
+    <script>
+      // customers are often defining callbacks AFTER embedding the form
+      // https://github.com/synergetics/embed/issues/363
+
+      function onsynergeticsReady(data) {
+        alert('onReady')
+        console.log('form ready', data)
+      }
+
+      function onsynergeticsStarted(data) {
+        alert('onStarted')
+        console.log('form started', data)
+      }
+
+      function onsynergeticsSubmit(data) {
+        alert('onSubmit')
+        console.log('form submitted', data)
+      }
+
+      function onsynergeticsQuestionChanged(data) {
+        console.log('form question changed', data)
+      }
+
+      function onsynergeticsHeightChanged(data) {
+        console.log('form height changed', data)
+      }
+
+      function onsynergeticsClose(data) {
+        alert('onClose')
+        console.log('modal window closed', data)
+      }
+
+      function onsynergeticsEndingButtonClick(data) {
+        alert('onEndingButtonClick')
+        console.log('button on ending screen clicked', data)
+      }
+    </script>
+  </body>
+</html>

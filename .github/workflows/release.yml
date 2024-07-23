@@ -1,0 +1,70 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          # Use custom token from repo secrets to allow semantic release to push commit:
+          # https://github.com/semantic-release/semantic-release/blob/master/docs/recipes/github-actions.md#pushing-packagejson-changes-to-a-master-branch
+          persist-credentials: false
+          token: ${{ secrets.GH_TOKEN }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Get yarn cache
+        uses: actions/cache@v3
+        id: yarn-cache
+        with:
+          path: |
+            **/node_modules
+            ~/.cache
+          key: ${{ runner.os }}-node-16-yarn-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('.github/workflows/**.yml') }}
+
+      - name: Install Node.js dependencies
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile
+
+      - run: yarn lerna bootstrap
+      - run: yarn build
+        env:
+          NODE_ENV: 'production'
+      # Update registry and tokens with write access for releasing.
+      - run: rm ./.npmrc
+      - run: npm config set '//registry.npmjs.org/:_authToken' $NPM_TOKEN
+      - run: npm config set '//npm.pkg.github.com/:_authToken' $GH_TOKEN
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      - run: npm config set @synergetics:registry https://npm.pkg.github.com/ # install jarvis from github
+      - run: yarn add -W @synergetics/jarvis
+      - run: git checkout HEAD -- package.json # do not save jarvis dependency to package.json because it is private (the file is committed by semantic-release to bump version)
+
+      - run: yarn release
+        env:
+          AWS_ASSETS_BUCKET: 'synergetics-public-assets/embed'
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
+          AWS_CLOUDFRONT_DIST: 'E3IUO95IYL1RI3'
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          PUBLIC_CDN_URL: 'https://embed.synergetics.com'
+          SEGMENT_WRITE_KEY: ${{ secrets.DEPLOYMENT_SEGMENT_WRITE_KEY }}
+
+      - uses: 8398a7/action-slack@v3
+        if: failure()
+        with:
+          status: ${{ job.status }}
+          fields: repo,message,commit,author,action
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.ACTION_MONITORING_SLACK }}

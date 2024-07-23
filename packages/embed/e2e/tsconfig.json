@@ -1,0 +1,10 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "allowUnreachableCode": false,
+    "noImplicitAny": true,
+    "noEmit": true,
+    "types": ["cypress"]
+  },
+  "include": ["../node_modules/cypress", "./**/*.ts"]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "demo-nextjs",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "yarn next dev -p 9090",
+    "lint": "yarn eslint --ignore-path ../../.gitignore .",
+    "clean": "rm -rf ./.next"
+  },
+  "dependencies": {
+    "@synergetics/embed": "5.0.0",
+    "@synergetics/embed-react": "4.0.0"
+  }
+}

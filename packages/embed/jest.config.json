@@ -1,0 +1,14 @@
+{
+  "globals": {
+    "ts-jest": {
+      "tsconfig": "tsconfig.jest.json"
+    }
+  },
+  "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json"],
+  "transform": {
+    "^.+\\.(ts|tsx)$": "ts-jest"
+  },
+  "testMatch": ["**/src/**/*.spec.(ts|tsx)"],
+  "coverageReporters": [["lcov", { "projectRoot": "../.." }]],
+  "setupFilesAfterEnv": ["<rootDir>/jest-setup.ts"]
+}

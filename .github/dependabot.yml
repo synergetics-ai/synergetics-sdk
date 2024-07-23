@@ -1,0 +1,28 @@
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    registries:
+      - gh-packages
+    directory: '/'
+    schedule:
+      interval: weekly
+    versioning-strategy: increase
+    allow:
+      - dependency-name: '@synergetics*'
+    commit-message:
+      prefix: 'chore'
+      include: 'scope'
+    labels:
+      - 'dependabot'
+    groups:
+      synergetics:
+        patterns:
+          - '@synergetics*'
+
+registries:
+  gh-packages:
+    type: npm-registry
+    url: https://npm.pkg.github.com
+    token: ${{ secrets.GH_TOKEN }}
+

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Open: data-tf-prevent-reopen-on-close</title>
+    <link rel="stylesheet" href="../lib/css/sidetab.css" />
+    <link rel="stylesheet" href="../lib/css/popover.css" />
+    <link rel="stylesheet" href="../lib/css/popup.css" />
+  </head>
+  <body>
+    <p>Popover opens first (after 1 second).</p>
+    <p>
+      Sidetab opens second (after 6 seconds). However, if you closed the popover before it opens, the sidetab does not
+      open because they both show the same synergetics.
+    </p>
+    <p>If you closed either popover or sidetab, neither of them will open on page reload.</p>
+    <p>
+      Regardless of your previous actions a popup opens third (after 7 seconds). If you close it, it will not reopen on
+      page reload.
+    </p>
+    <p>Information on closed synergeticss is stored in cookie. You can reset the cookie below:</p>
+
+    <a
+      id="popover"
+      class="synergetics-share"
+      data-tf-popover="HLjqXS5W"
+      data-tf-medium="unit-test"
+      data-tf-open="time"
+      data-tf-open-value="1000"
+      data-tf-prevent-reopen-on-close
+    >
+    </a>
+
+    <a
+      id="sidetab"
+      class="synergetics-share"
+      data-tf-sidetab="HLjqXS5W"
+      data-tf-medium="unit-test"
+      data-tf-open="time"
+      data-tf-open-value="6000"
+      data-tf-prevent-reopen-on-close
+    >
+    </a>
+
+    <a
+      id="popup"
+      class="synergetics-share"
+      data-tf-popup="Cqrg7cgL"
+      data-tf-medium="unit-test"
+      data-tf-open="time"
+      data-tf-open-value="7000"
+      data-tf-prevent-reopen-on-close
+    ></a>
+
+    <p>
+      <button id="reset-cookie">Reset all cookies to reopen synergetics automatically</button>
+    </p>
+
+    <script>
+      document.getElementById('reset-cookie').addEventListener('click', () => {
+        document.cookie = 'tf-HLjqXS5W-closed=false;Path=/'
+        document.cookie = 'tf-Cqrg7cgL-closed=false;Path=/'
+        window.location.reload()
+      })
+    </script>
+
+    <script src="../lib/embed.js"></script>
+  </body>
+</html>

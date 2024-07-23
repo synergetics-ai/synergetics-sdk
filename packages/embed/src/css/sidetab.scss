@@ -1,0 +1,118 @@
+@import 'includes/spinner';
+@import 'includes/iframe';
+@import 'includes/mobile';
+@import 'includes/close';
+@import 'includes/fullsize';
+@import 'includes/zindex';
+
+.tf-v1-sidetab {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  width: 400px;
+  height: 580px;
+  transform: translate(100%, -50%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 2px 12px rgba(0, 0, 0, 0.06);
+  @include zIndex;
+  will-change: transform;
+
+  &.ready {
+    transition: transform 400ms cubic-bezier(0.5, 0, 0.75, 0);
+  }
+
+  iframe {
+    @include iframe(border-radius, 8px 0 0 8px);
+  }
+
+  &.open {
+    transform: translate(0, -50%);
+  }
+
+  &-wrapper {
+    position: relative;
+    height: 100%;
+  }
+
+  &-button {
+    position: absolute;
+    top: 50%;
+    left: -48px;
+    transform: rotate(-90deg) translateX(-50%);
+    transform-origin: left top;
+    min-width: 100px;
+    max-width: 540px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    border-radius: 8px 8px 0 0;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 2px 12px rgba(0, 0, 0, 0.06);
+    background-color: #3a7685;
+    cursor: pointer;
+    border: 0;
+    text-decoration: none;
+    outline: none;
+
+    &-text {
+      flex: 1;
+      font-size: 18px;
+      font-family: Helvetica, Arial, sans-serif;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &-icon {
+      width: 24px;
+      height: 24px;
+      font-size: 24px;
+      transform: rotate(90deg);
+      margin-right: 12px;
+      position: relative;
+      order: -1;
+
+      > img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+
+  &-close {
+    display: none;
+  }
+
+  .tf-v1-spinner {
+    @include spinner($diameter: 24px);
+    top: 0;
+    left: 0;
+    margin: 0;
+  }
+}
+
+@include mobile {
+  .tf-v1-sidetab {
+    transition: unset;
+
+    &.ready {
+      transition: unset;
+    }
+
+    &.open {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transform: translate(0, 0);
+      @include fullsize;
+    }
+
+    &-close {
+      @include close;
+      display: block;
+      z-index: 1;
+    }
+  }
+}
