@@ -6,6 +6,6 @@
   "author": "Synergetics AI",
   "license": "MIT",
   "scripts": {
-    "start": "yarn http-server -p 9090 -c-1 ./public"
+    "start": "yarn http-server -p 9091 -c-1 ./public"
   }
 }
