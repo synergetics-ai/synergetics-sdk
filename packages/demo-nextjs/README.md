@@ -1,12 +1,12 @@
 # Next.js App Demo
 
-Typeform can be embedded in server-side rendered Next.js apps using [@typeform/embed-react](../embed-react):
+Webplayer can be embedded in server-side rendered Next.js apps using [@synergetics-sdk/embed-react](../embed-react):
 
 ```javascript
-import { Widget } from '@typeform/embed-react'
+import { Widget } from '@synergetics-sdk/embed-react'
 
 export default function MyPage() {
-  return <Widget id="<form-id>" style={{ width: '50%' }} className="my-form" />
+  return <Widget id="<webplayer-id>" style={{ width: '50%' }} className="my-form" />
 }
 ```
 
@@ -17,4 +17,4 @@ export default function MyPage() {
 
 ## Run demo in CodeSandbox
 
-See [embed-demo repository](https://github.com/Typeform/embed-demo#react-nextjs) for standalone examples deployable to [CodeSandbox](https://codesandbox.io/).
+See [embed-demo repository](https://github.com/synergetics-ai/synergetics-sdk/embed-demo#react-nextjs) for standalone examples deployable to [CodeSandbox](https://codesandbox.io/).

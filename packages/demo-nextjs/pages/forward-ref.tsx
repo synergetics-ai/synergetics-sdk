@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { PopupButton, GenericEmbed } from '@typeform/embed-react'
+import { PopupButton, GenericEmbed } from '@synergetics-sdk/embed-react'
 
 export default function PopupPage({ id }: { id: string }) {
   const buttonStyle = {

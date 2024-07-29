@@ -1,6 +1,6 @@
 'use client'
 
-import { Widget } from '@typeform/embed-react'
+import { Widget } from '@synergetics-sdk/embed-react'
 import { useSearchParams } from 'next/navigation'
 
 import { avatarAssetId, defaultFormId, dummyToken, workflowId } from '../../../shared/constants'

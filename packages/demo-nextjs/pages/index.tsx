@@ -1,4 +1,4 @@
-import { Widget } from '@typeform/embed-react'
+import { Widget } from '@synergetics-sdk/embed-react'
 import { avatarAssetId, dummyToken, workflowId } from '../shared/constants'
 
 export default function HomePage({ id }: { id: string }) {

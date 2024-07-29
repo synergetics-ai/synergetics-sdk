@@ -6,7 +6,7 @@ export type ModalWindowOptions = {
    */
   container?: HTMLElement
   /**
-   * Time (ms) until the embedded typeform will automatically close after a respondent clicks the Submit button.
+   * Time (ms) until the embedded webplayer will automatically close after a respondent clicks the Submit button.
    *
    * @type {number|boolean}
    */

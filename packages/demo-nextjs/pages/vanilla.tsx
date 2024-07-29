@@ -1,10 +1,10 @@
 import { useEffect, useRef } from 'react'
-import { createPopup, createWidget } from '@typeform/embed'
+import { createPopup, createWidget } from '@synergetics-sdk/embed'
 
-import '@typeform/embed/build/css/popup.css'
-import '@typeform/embed/build/css/widget.css'
+import '@synergetics-sdk/embed/build/css/popup.css'
+import '@synergetics-sdk/embed/build/css/widget.css'
 
-// with @typeform/embed-react lib this component could be as short as <Widget id="HLjqXS5W" />
+// with @synergetics-sdk/embed-react lib this component could be as short as <Widget id="HLjqXS5W" />
 const Widget = ({ id }: { id: string }) => {
   const containerRef = useRef<HTMLDivElement>(null)
 
@@ -22,6 +22,8 @@ const Widget = ({ id }: { id: string }) => {
         transitiveSearchParams: ['foo', 'bar'],
         hidden: { foo: 'foo value', bar: 'bar value' },
         tracking: { utm_medium: 'fb', tracking: 'bar value' },
+        token:'',
+        avatarAssetId: ''
       })
     }
   }, [id])
@@ -29,7 +31,7 @@ const Widget = ({ id }: { id: string }) => {
   return <div style={widgetContainerStyle} ref={containerRef} />
 }
 
-// with @typeform/embed-react lib this component could be as short as <PopupButton id="HLjqXS5W">click</PopupButton>
+// with @synergetics-sdk/embed-react lib this component could be as short as <PopupButton id="HLjqXS5W">click</PopupButton>
 const PopupButton = ({ id }: { id: string }) => {
   const openPopup = () => {
     createPopup(id, { medium: 'demo-test', hidden: { foo: 'foo value', bar: 'bar value' } }).open()

@@ -10,18 +10,18 @@
     <p>Popover opens first (after 1 second).</p>
     <p>
       Sidetab opens second (after 6 seconds). However, if you closed the popover before it opens, the sidetab does not
-      open because they both show the same typeform.
+      open because they both show the same webplayer.
     </p>
     <p>If you closed either popover or sidetab, neither of them will open on page reload.</p>
     <p>
       Regardless of your previous actions a popup opens third (after 7 seconds). If you close it, it will not reopen on
       page reload.
     </p>
-    <p>Information on closed typeforms is stored in cookie. You can reset the cookie below:</p>
+    <p>Information on closed webplayers is stored in cookie. You can reset the cookie below:</p>
 
     <a
       id="popover"
-      class="typeform-share"
+      class="webplayer-share"
       data-wp-popover="HLjqXS5W"
       data-wp-medium="unit-test"
       data-wp-open="time"
@@ -32,7 +32,7 @@
 
     <a
       id="sidetab"
-      class="typeform-share"
+      class="webplayer-share"
       data-wp-sidetab="HLjqXS5W"
       data-wp-medium="unit-test"
       data-wp-open="time"
@@ -43,7 +43,7 @@
 
     <a
       id="popup"
-      class="typeform-share"
+      class="webplayer-share"
       data-wp-popup="Cqrg7cgL"
       data-wp-medium="unit-test"
       data-wp-open="time"
@@ -52,13 +52,13 @@
     ></a>
 
     <p>
-      <button id="reset-cookie">Reset all cookies to reopen Typeform automatically</button>
+      <button id="reset-cookie">Reset all cookies to reopen Webplayer automatically</button>
     </p>
 
     <script>
       document.getElementById('reset-cookie').addEventListener('click', () => {
-        document.cookie = 'tf-HLjqXS5W-closed=false;Path=/'
-        document.cookie = 'tf-Cqrg7cgL-closed=false;Path=/'
+        document.cookie = 'wp-HLjqXS5W-closed=false;Path=/'
+        document.cookie = 'wp-Cqrg7cgL-closed=false;Path=/'
         window.location.reload()
       })
     </script>

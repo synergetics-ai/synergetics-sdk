@@ -24,25 +24,25 @@ export type UrlOptions = {
    */
   mediumVersion?: string
   /**
-   * Parameters that we want to transfert from the URL to the Typeform as hidden fields.
+   * Parameters that we want to transfert from the URL to the webplayer as hidden fields.
    *
    * @type {string[]}
    */
   transitiveSearchParams?: string[] | boolean
   /**
-   * Hide typeform footer, that appears showing the progress bar and the navigation buttons.
+   * Hide webplayer footer, that appears showing the progress bar and the navigation buttons.
    *
    * @type {boolean}
    */
   hideFooter?: boolean
   /**
-   * Hide typeform header, that appears when you have a Question group, or a long question that you need to scroll through to answer, like a Multiple Choice block.
+   * Hide webplayer header, that appears when you have a Question group, or a long question that you need to scroll through to answer, like a Multiple Choice block.
    *
    * @type {boolean}
    */
   hideHeaders?: boolean
   /**
-   * You can make your typeform's background totally transparent, or opaque. (For example, to have a video as a background).
+   * You can make your webplayer's background totally transparent, or opaque. (For example, to have a video as a background).
    *
    * @type {number}
    */
@@ -54,7 +54,7 @@ export type UrlOptions = {
    */
   disableTracking?: boolean
   /**
-   * Allows to share the Google instance of the page with the Typeform in the embed.
+   * Allows to share the Google instance of the page with the webplayer in the embed.
    * If string value is provided it specifies which Google Analytics instance to share (in case there are more in the host page).
    *
    * @type {string | boolean}

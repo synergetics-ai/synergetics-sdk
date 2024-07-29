@@ -1,4 +1,4 @@
-import { Popover } from '@typeform/embed-react'
+import { Popover } from '@synergetics-sdk/embed-react'
 
 const handleOnReady = () => {
   // eslint-disable-next-line no-console
@@ -15,7 +15,7 @@ export default function PopoverPage({ id }: { id: string }) {
         onReady={handleOnReady}
         medium="demo-test"
         hidden={{ foo: 'foo value', bar: 'bar value' }}
-        buttonProps={{ ariaLabel: 'Typeform Button', dataTestid: 'demo-button' }}
+        buttonProps={{ ariaLabel: 'Webplayer Button', dataTestid: 'demo-button' }}
         tooltip="welcome"
       />
     </main>

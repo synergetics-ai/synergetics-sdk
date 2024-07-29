@@ -2,7 +2,7 @@ import { BehavioralType } from './behavioral-type'
 
 export type BehavioralOptions = {
   /**
-   * Your typeform will launch based on behavioral triggers.
+   * Your webplayer will launch based on behavioral triggers.
    *
    * @type {BehavioralType}
    */
@@ -20,8 +20,8 @@ export type BehavioralOptions = {
    */
   preventReopenOnClose?: boolean
   /**
-   * Do not open if there already is a modal with typeform open.
-   *  - all: any other typeform
+   * Do not open if there already is a modal with webplayer open.
+   *  - all: any other webplayer
    *  - same: only if the form is the same as this one (same form ID)
    */
   respectOpenModals?: 'all' | 'same'
