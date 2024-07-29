@@ -122,7 +122,7 @@ Learn more about [Vanilla Embed Library](/embed/vanilla). Since React Embed Libr
 
 You can:
 
-- embed typeform [inline in page](/embed/inline)
+- embed webplayer [inline in page](/embed/inline)
 - open it [in modal window](/embed/modal)
 - see all available [configuration options](/embed/configuration)
 

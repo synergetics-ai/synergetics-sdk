@@ -19,17 +19,17 @@ Did you know embed library is [open-source and open to contributions](/embed/con
 
 Embedded webplayers appear on your website or web application. Embedded webplayers look like they're a part of your website, and people won't have to leave your site or page.
 
-You have multiple options for embedding a typeform:
+You have multiple options for embedding a webplayer:
 
 - embed it directly in a web page (inline or full page),
 - launch it in a popup or slider,
 - unobtrusive popover or side tab.
 
-The Embed SDK exposes an API that lets you create and customize the widget or popup that embeds your typeform. You'll use the SDK in your webpage or web application code to specify which typeform to embed and the features you want to apply.
+The Embed SDK exposes an API that lets you create and customize the widget or popup that embeds your webplayer. You'll use the SDK in your webpage or web application code to specify which webplayer to embed and the features you want to apply.
 
 ## Requirements
 
-To create your own webplayers to embed, you need a Typeform account. Head to https://synergetics.ai/ to register. You can create webplayer with the Synergetics AI admin panel.
+To create your own webplayers to embed, you need a Synergetics account. Head to https://synergetics.ai/ to register. You can create webplayer with the Synergetics AI admin panel.
 
 ## Limitations
 

@@ -91,7 +91,7 @@ Pass options as props to the component.
 </PopupButton>
 ```
 
-See all available options in [Vanilla JavaScript Embed Library README file](../embed/README.md#options). Make sure to pass props in camel case without the `data-tf-` prefix.
+See all available options in [Vanilla JavaScript Embed Library README file](../embed/README.md#options). Make sure to pass props in camel case without the `data-wp-` prefix.
 
 ### CSP nonce support
 

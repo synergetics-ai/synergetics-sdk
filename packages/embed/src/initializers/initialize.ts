@@ -31,7 +31,7 @@ export const initialize = async ({
         throw new Error(`Invalid ${embedElementAttribute}=${formId} for embed #${index}`)
       }
 
-      if (element.hasAttribute('data-tf-hubspot')) {
+      if (element.hasAttribute('data-wp-hubspot')) {
         await waitForHubspotCookie()
       }
 

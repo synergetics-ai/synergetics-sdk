@@ -6,7 +6,7 @@ nav_order: 50
 
 # Custom embeds
 
-Although it is possible to embed a webplayer by adding an iframe in your page that points to a webplayer, we encourage you to use the [Embed SDK](https://developer.typeform.com/embed/). Custom embeds often cause issues like:
+Although it is possible to embed a webplayer by adding an iframe in your page that points to a webplayer, we encourage you to use the [Synergetics Embed SDK](https://github.com/synergetics-ai/synergetics-sdk). Custom embeds often cause issues like:
 
 - Scrolling problems in older browsers.
 - Autofocus "jumps" to the first focusable question.

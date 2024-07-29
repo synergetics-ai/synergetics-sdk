@@ -6,8 +6,6 @@ nav_order: 14
 
 # Use Hidden Fields in embedded webplayer
 
-You can use [Hidden Fields](https://help.typeform.com/hc/en-us/articles/360050448072-Hidden-fields-explained) to pass information to a webplayer embedded on your site.
-
 ---
 
 **NOTE:** You are responsible for any information you share with Hidden Fields. Recording and transmitting identifying information, like email addresses, is prohibited by some services (like Google Analytics). Make sure that the way you use Hidden Fields stays within the laws of your country and the terms and conditions of any service you are using with Synergetics AI.
@@ -40,7 +38,7 @@ createWidget('<form-id>', {
 Or via HTML:
 
 ```html
-<div data-tf-widget="<form-id>" data-tf-hidden="full_name=John Doe,email=john@example.com"></div>
+<div data-wp-widget="<form-id>" data-wp-hidden="full_name=John Doe,email=john@example.com"></div>
 <script src="//embed.synergetics-ai.com/next/embed.js"></script>
 ```
 
@@ -63,7 +61,7 @@ createWidget('<form-id>', {
 Or via HTML:
 
 ```html
-<div data-tf-widget="<form-id>" data-tf-transitive-search-params="full_name,email"></div>
+<div data-wp-widget="<form-id>" data-wp-transitive-search-params="full_name,email"></div>
 <script src="//embed.synergetics-ai.com/next/embed.js"></script>
 ```
 

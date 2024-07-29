@@ -17,7 +17,7 @@ describe('create-popup', () => {
         jest.runAllTimers()
       })
 
-      it('should append typeform popup to the container', () => {
+      it('should append webplayer popup to the container', () => {
         expect(containerAppendSpy).toHaveBeenCalledTimes(1)
       })
 
@@ -47,13 +47,13 @@ describe('create-popup', () => {
       const container = document.createElement('div')
       const containerRemoveChildSpy = jest.spyOn(container, 'removeChild')
 
-      it('should not remove typeform popup from the container if it was not open', () => {
+      it('should not remove webplayer popup from the container if it was not open', () => {
         createPopup('url', { container }).close()
         jest.runAllTimers()
         expect(containerRemoveChildSpy).toHaveBeenCalledTimes(0)
       })
 
-      it('should remove typeform popup from the container', () => {
+      it('should remove webplayer popup from the container', () => {
         const popup = createPopup('url', { container })
         popup.open()
         jest.runAllTimers()

@@ -183,10 +183,10 @@ describe('load-options-from-attributes', () => {
   describe('#loadOptionsFromAttributes', () => {
     const wrapper = document.createElement('div')
     wrapper.innerHTML = `<div id="element"
-        data-tf-string-param="foo"
-        data-tf-empty-string-param
-        data-tf-bool-param
-        data-tf-bool-param-yes="yes"
+        data-wp-string-param="foo"
+        data-wp-empty-string-param
+        data-wp-bool-param
+        data-wp-bool-param-yes="yes"
       ></div>`
 
     it('should load correct options', () => {

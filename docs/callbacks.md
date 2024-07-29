@@ -41,7 +41,7 @@ createWidget('<form-id>', {
 Or in HTML:
 
 ```html
-<div data-tf-widget="<form-id>" data-tf-on-ready="ready"></div>
+<div data-wp-widget="<form-id>" data-wp-on-ready="ready"></div>
 <script src="//embed.synergetics-ai.com/next/embed.js"></script>
 <script>
   // this function needs to be available on global scope (window)
@@ -71,7 +71,7 @@ createWidget('<form-id>', {
 Or in HTML:
 
 ```html
-<div data-tf-widget="<form-id>" data-tf-on-started="started"></div>
+<div data-wp-widget="<form-id>" data-wp-on-started="started"></div>
 <script src="//embed.synergetics-ai.com/next/embed.js"></script>
 <script>
   // this function needs to be available on global scope (window)
@@ -103,7 +103,7 @@ createPopup('<form-id>', {
 Or in HTML:
 
 ```html
-<button data-tf-popup="<form-id>" data-tf-on-submit="submit">open</button>
+<button data-wp-popup="<form-id>" data-wp-on-submit="submit">open</button>
 <script src="//embed.synergetics-ai.com/next/embed.js"></script>
 <script>
   // this function needs to be available on global scope (window)
@@ -135,7 +135,7 @@ createPopup('<form-id>', {
 Or in HTML:
 
 ```html
-<button data-tf-popup="<form-id>" data-tf-on-close="close">open</button>
+<button data-wp-popup="<form-id>" data-wp-on-close="close">open</button>
 <script src="//embed.synergetics-ai.com/next/embed.js"></script>
 <script>
   // this function needs to be available on global scope (window)
@@ -169,7 +169,7 @@ createSlider('<form-id>', {
 Or in HTML:
 
 ```html
-<button data-tf-slider="<form-id>" data-tf-on-question-changed="changed">open</button>
+<button data-wp-slider="<form-id>" data-wp-on-question-changed="changed">open</button>
 <script src="//embed.synergetics-ai.com/next/embed.js"></script>
 <script>
   // this function needs to be available on global scope (window)
@@ -201,7 +201,7 @@ createSlider('<form-id>', {
 Or in HTML:
 
 ```html
-<button data-tf-slider="<form-id>" data-tf-on-height-changed="changed">open</button>
+<button data-wp-slider="<form-id>" data-wp-on-height-changed="changed">open</button>
 <script src="//embed.synergetics-ai.com/next/embed.js"></script>
 <script>
   // this function needs to be available on global scope (window)
@@ -211,7 +211,7 @@ Or in HTML:
 </script>
 ```
 
-**Tip:** To automatically resize widget embed to fit webplayer height, use `autoResize` option. You can specify minimum and maximum heights in pixels, eg. `data-tf-auto-resize="300,800"`.
+**Tip:** To automatically resize widget embed to fit webplayer height, use `autoResize` option. You can specify minimum and maximum heights in pixels, eg. `data-wp-auto-resize="300,800"`.
 
 ## onEndingButtonClick
 
@@ -236,7 +236,7 @@ createSlider('<form-id>', {
 Or in HTML:
 
 ```html
-<button data-tf-slider="<form-id>" data-tf-on-ending-button-click="clicked">open</button>
+<button data-wp-slider="<form-id>" data-wp-on-ending-button-click="clicked">open</button>
 <script src="//embed.synergetics-ai.com/next/embed.js"></script>
 <script>
   // this function needs to be available on global scope (window)

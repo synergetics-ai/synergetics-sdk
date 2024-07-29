@@ -3,7 +3,7 @@
 Typeform can be embedded with 2 lines of code:
 
 ```html
-<div data-tf-widget="<form id>"></div>
+<div data-wp-widget="<form id>"></div>
 <script src="//embed.typeform.com/next/embed.js"></script>
 ```
 

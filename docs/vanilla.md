@@ -42,7 +42,7 @@ createWidget('<webplayer-id>', { container: document.querySelector('#form') })
 As HTML, the CSS is imported automatically. Place this code where you want to display your form.
 
 ```html
-<div data-tf-widget="<webplayer-id>"></div>
+<div data-wp-widget="<webplayer-id>"></div>
 <script src="//embed.synergetics-ai.com/next/embed.js"></script>
 ```
 

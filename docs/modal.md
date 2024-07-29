@@ -30,7 +30,7 @@ document.getElementById('button').onclick = toggle
 Or via HTML:
 
 ```html
-<button data-tf-popup="<form-id>">open form</button>
+<button data-wp-popup="<form-id>">open form</button>
 <script src="//embed.synergetics-ai.com/next/embed.js"></script>
 ```
 
@@ -47,7 +47,7 @@ createSlider('<form-id>', options)
 ```
 
 ```html
-<a data-tf-slider="<form-id>">click to open</a>
+<a data-wp-slider="<form-id>">click to open</a>
 ```
 
 Side tab:
@@ -59,7 +59,7 @@ createSidetab('<form-id>', options)
 ```
 
 ```html
-<div data-tf-sidetab="<form-id>" data-tf-button-text="click to open"></div>
+<div data-wp-sidetab="<form-id>" data-wp-button-text="click to open"></div>
 ```
 
 Popover:
@@ -71,7 +71,7 @@ createPopover('<form-id>', options)
 ```
 
 ```html
-<div data-tf-popover="<form-id>"></div>
+<div data-wp-popover="<form-id>"></div>
 ```
 
 ## Examples
