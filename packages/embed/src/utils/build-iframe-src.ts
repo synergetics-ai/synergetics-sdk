@@ -57,11 +57,11 @@ const mapOptionsToQueryParams = (
   } = options
   const transitiveParams = getTransitiveSearchParams(transitiveSearchParams)
   const params = {
-    'typeform-embed-id': embedId,
-    'typeform-embed': typesToEmbed[type],
-    'typeform-source': source,
-    'typeform-medium': medium,
-    'typeform-medium-version': mediumVersion,
+    'synergetics-embed-id': embedId,
+    'synergetics-embed': typesToEmbed[type],
+    'synergetics-source': source,
+    'synergetics-medium': medium,
+    'synergetics-medium-version': mediumVersion,
     'embed-hide-footer': hideFooter ? 'true' : undefined,
     'embed-hide-headers': hideHeaders ? 'true' : undefined,
     'embed-opacity': opacity,
@@ -70,23 +70,23 @@ const mapOptionsToQueryParams = (
     'share-ga-instance': shareGaInstance ? 'true' : undefined,
     'force-touch': forceTouch ? 'true' : undefined,
     'add-placeholder-ws': type === 'widget' && displayAsFullScreenModal ? 'true' : undefined,
-    'typeform-embed-redirect-target': redirectTarget,
-    'typeform-embed-handles-redirect': 1,
-    'typeform-embed-auto-resize': autoResize ? 'true' : undefined,
-    'typeform-embed-disable-scroll': disableScroll ? 'true' : undefined,
-    'typeform-embed-handle-ending-button-click': !!onEndingButtonClick ? 'true' : undefined,
-    'typeform-embed-no-heading': noHeading ? 'true' : undefined,
-    'typeform-embed-no-scrollbars': noScrollbars ? 'true' : undefined,
+    'synergetics-embed-redirect-target': redirectTarget,
+    'synergetics-embed-handles-redirect': 1,
+    'synergetics-embed-auto-resize': autoResize ? 'true' : undefined,
+    'synergetics-embed-disable-scroll': disableScroll ? 'true' : undefined,
+    'synergetics-embed-handle-ending-button-click': !!onEndingButtonClick ? 'true' : undefined,
+    'synergetics-embed-no-heading': noHeading ? 'true' : undefined,
+    'synergetics-embed-no-scrollbars': noScrollbars ? 'true' : undefined,
   }
   return { ...params, ...transitiveParams, ...tracking }
 }
 
-const getBaseUrl = (formString: string, domain = DEFAULT_DOMAIN): URL => {
+const getBaseUrl = (formString: string,token:string,avatarAssetId:string,domain = DEFAULT_DOMAIN): URL => {
   if (formString.startsWith('http://') || formString.startsWith('https://')) {
     return new URL(formString)
   }
 
-  return new URL(`https://${domain}/to/${formString}`)
+  return new URL(`https://${domain}/?wid=${formString}&token=${token}&avatarAssetId=${avatarAssetId}`)
 }
 
 const makePreselectParam = (preselect?: Record<string, string>) => {
@@ -130,10 +130,10 @@ const buildHashParams = (url: URL, options: BaseOptions & UrlOptions): string =>
 }
 
 export const buildIframeSrc = (params: BuildIframeSrcOptions): string => {
-  const { domain, formId, type, embedId, options } = params
+  const { domain, formId, type, embedId, options ,avatarAssetId,token} = params
   const queryParams = mapOptionsToQueryParams(type, embedId, addDefaultUrlOptions(options))
 
-  const url = getBaseUrl(formId, domain)
+  const url = getBaseUrl(formId,token,avatarAssetId,domain)
 
   Object.entries(queryParams)
     .filter(([, paramValue]) => isDefined(paramValue))
@@ -154,6 +154,8 @@ export const buildIframeSrc = (params: BuildIframeSrcOptions): string => {
 type BuildIframeSrcOptions = {
   domain?: string
   formId: string
+  token:string
+  avatarAssetId: string
   embedId: string
   type: EmbedType
   options: BaseOptions & UrlOptions

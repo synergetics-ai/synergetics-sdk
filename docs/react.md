@@ -4,9 +4,9 @@ nav_title: React Embed Library
 nav_order: 20
 ---
 
-# Typeform React Embed Library
+# Syngertics SDK React Embed Library
 
-**[Typeform/embed-react](https://www.npmjs.com/package/@typeform/embed-react)** is Typeform official embed library to embed typeforms in your [React](https://reactjs.org/) project.
+**[synergetics-sdk/embed-react](https://www.npmjs.com/package/@synergetics-sdk/embed-react)** is Synergetics SDK official embed library to embed webplayers in your [React](https://reactjs.org/) project.
 
 ## Installation
 
@@ -18,37 +18,37 @@ Requirements:
 Add the library to your project using your favourite package manager:
 
 ```shell
-yarn add @typeform/embed-react
+yarn add @synergetics-sdk/embed-react
 ```
 
 or
 
 ```shell
-npm install @typeform/embed-react --save
+npm install @synergetics-sdk/embed-react --save
 ```
 
 ## Usage
 
 Import the component you want to use. Then render it in your React app.
 
-For example to embed your typeform as a `Widget`.
+For example to embed your webplayer as a `Widget`.
 
 ```javascript
-import { Widget } from '@typeform/embed-react'
+import { Widget } from '@synergetics-sdk/embed-react'
 
 const MyComponent = () => {
-  return <Widget id="<form-id>" style={{ width: '50%' }} className="my-form" />
+  return <Widget id="<webplayer-id>" style={{ width: '50%' }} className="my-form" />
 }
 ```
 
 The `PopupButton` and `SliderButton` components provide a button to open the embed:
 
 ```javascript
-import { PopupButton } from '@typeform/embed-react'
+import { PopupButton } from '@synergetics-sdk/embed-react'
 
 const MyComponent = () => {
   return (
-    <PopupButton id="<form-id>" style={{ fontSize: 20 }} className="my-button">
+    <PopupButton id="<webplayer-id>" style={{ fontSize: 20 }} className="my-button">
       click to open form in popup
     </PopupButton>
   )
@@ -58,22 +58,19 @@ const MyComponent = () => {
 You can render `Popover` and `Slider` components anywhere in your app (preferably at the end of the page):
 
 ```javascript
-import { Sidetab } from '@typeform/embed-react'
+import { Sidetab } from '@synergetics-sdk/embed-react'
 
 const MyComponent = () => {
-  return <Sidetab id="<form-id>" buttonText="click to open" />
+  return <Sidetab id="<webplayer-id>" buttonText="click to open" />
 }
 ```
 
 ## How to get form id of your form?
 
-You can find `<form-id>` from the public URL of your form:
+You can find `<webplayer-id>` from the public URL of your form:
 
-- `https://form.typeform.com/to/<form-id>`
+- `https://web-3d-player-stg.synergetics.ai/?wid=<webplayer-id>`
 
-Or from admin panel URL:
-
-- `https://admin.typeform.com/form/<form-id>/*`
 
 ## Configuration
 
@@ -83,14 +80,14 @@ Pass options as props to the component.
 
 ```javascript
 <PopupButton
-  id="<form-id>"
+  id="<webplayer-id>"
   size={60}
   hidden={{
     foo: 'Foo Value',
     bar: 'Bar Value',
   }}
   onReady={() => {
-    console.log('form ready')
+    console.log('webplayer ready')
   }}
   enableSandbox
 >
@@ -98,9 +95,6 @@ Pass options as props to the component.
 </PopupButton>
 ```
 
-### CSP nonce support
-
-If the global `__webpack_nonce__` is set, its value will be used for a `nonce` attribute on the inline `<style>` block. See [Github issue #458](https://github.com/Typeform/embed/issues/458) for details.
 
 ### Passing a custom ref as `embedRef`
 
@@ -115,7 +109,7 @@ const ref = useRef()
 const openPopup = () => ref.current?.open()
 // ...
 <PopupButton
-  id="<form-id>"
+  id="<webplayer-id>"
   embedRef={ref}
 >
   click to open
@@ -132,4 +126,4 @@ You can:
 - open it [in modal window](/embed/modal)
 - see all available [configuration options](/embed/configuration)
 
-If you want to create a form so you can embed it, sign up for a [Typeform](https://typeform.com) account or head to our documentation for the [Create API](/create/).
+If you want to create a form so you can embed it, sign up for a Synergetics AI (https://synergetics.ai/) account.

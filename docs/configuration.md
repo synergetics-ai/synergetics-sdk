@@ -11,8 +11,8 @@ You can configure your embed by setting different options.
 In JavaScript you pass options as an object:
 
 ```javascript
-import { createWidget } from '@typeform/embed'
-import '@typeform/embed/build/css/widget.css'
+import { createWidget } from '@synergetics-sdk/embed'
+import '@synergetics-sdk/embed/build/css/widget.css'
 
 const options = {
   // TODO: define your embed options here, see below
@@ -25,7 +25,7 @@ If you embed via HTML, you need to pass optinos as attributes with `data-tf-` pr
 
 ```html
 <a data-tf-popup="<form-id>" data-tf-size="50" data-tf-hide-footer>open</a>
-<script src="//embed.typeform.com/next/embed.js"></script>
+<script src="//embed.synergetics-ai.com/next/embed.js"></script>
 ```
 
 ## Available options
@@ -85,7 +85,7 @@ To embed via HTML without writing JavaScript code, use `data-tf-widget="<form-id
 
 ```html
 <div data-tf-popup="<form-id>" data-tf-size="50" data-tf-hide-footer></div>
-<script src="//embed.typeform.com/next/embed.js"></script>
+<script src="//embed.synergetics-ai.com/next/embed.js"></script>
 ```
 
 To set different option types:
@@ -119,8 +119,8 @@ If you wish to prevent automatically re-opening the typeform you can set `preven
 To open a typeform in popup 1 minute after the page is loaded you can use this JavaScript code:
 
 ```javascript
-import { createPopup } from '@typeform/embed'
-import '@typeform/embed/build/css/popup.css'
+import { createPopup } from '@synergetics-sdk/embed'
+import '@synergetics-sdk/embed/build/css/popup.css'
 
 createPopup('<form-id>', {
   open: 'time',
@@ -133,7 +133,7 @@ Or in HTML:
 
 ```html
 <a data-tf-popup="<form-id>" data-tf-open="time" data-tf-open-value="60000" data-tf-prevent-reopen-on-close></a>
-<script src="//embed.typeform.com/next/embed.js"></script>
+<script src="//embed.synergetics-ai.com/next/embed.js"></script>
 ```
 
 You can [read more about this feature in our Help Center](https://www.typeform.com/help/a/advanced-embed-options-360049535352/).

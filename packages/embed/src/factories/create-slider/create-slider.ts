@@ -64,7 +64,7 @@ export const createSlider = (formId: string, userOptions: SliderOptions = {}): S
   }
 
   const { position = SLIDER_POSITION, width = SLIDER_WIDTH, onClose, domain, ...options } = userOptions
-  const { iframe, embedId, refresh, focus } = createIframe('slider', { formId, domain, options })
+  const { iframe, embedId, refresh, focus } = createIframe('slider', { formId, domain,avatarAssetId:'',token:'', options })
   const scrollInitialState = document.body.style.overflow
   let openHandler: RemoveHandler
 

@@ -1,10 +1,10 @@
 ---
-title: Embed SDK - Mobile apps and embedded typeforms
+title: Embed SDK - Mobile apps and embedded webplayers
 nav_title: Mobile apps
 nav_order: 40
 ---
 
-# Mobile apps and embedded typeforms
+# Mobile apps and embedded webplayers
 
 ## Progressive web apps
 
@@ -12,11 +12,11 @@ You can use our embed SDK in progressive web apps with wrappers like Capacitor o
 
 ## Native mobile apps
 
-Typeforms can be embedded within iOS and Android apps using [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview) components.
+Webplayers can be embedded within iOS and Android apps using [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview) components.
 
 ---
 
-**NOTE:** Developers have successfully embedded typeforms within WKWebView components, but Typeform doesn't officially support it. If something goes wrong, we cannot offer you any formal assistance.
+**NOTE:** Developers have successfully embedded webplayers within WKWebView components, but Synergetics AI doesn't officially support it. If something goes wrong, we cannot offer you any formal assistance.
 
 ---
 

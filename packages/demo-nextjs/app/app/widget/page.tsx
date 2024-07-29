@@ -3,7 +3,7 @@
 import { Widget } from '@typeform/embed-react'
 import { useSearchParams } from 'next/navigation'
 
-import { defaultFormId } from '../../../shared/constants'
+import { avatarAssetId, defaultFormId, dummyToken, workflowId } from '../../../shared/constants'
 
 export default function Page() {
   const searchParams = useSearchParams()
@@ -18,7 +18,9 @@ export default function Page() {
       <p>Embed widget &lt;3 Next.js version &lt;= 13</p>
 
       <Widget
-        id={searchParams?.get('id') ?? defaultFormId}
+        id={searchParams?.get('id') ?? workflowId}
+        token={dummyToken}
+        avatarAssetId={avatarAssetId}
         style={widgetContainerStyle}
         medium="demo-test"
         hidden={{ foo: 'foo value', bar: 'bar value' }}

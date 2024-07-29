@@ -7,4 +7,4 @@ export const LIVE_EMBED_ATTRIBUTE = 'data-tf-live'
 export const SLIDER_POSITION = 'right'
 export const SLIDER_WIDTH = 800
 export const POPUP_SIZE = 100
-export const DEFAULT_DOMAIN = 'form.typeform.com'
+export const DEFAULT_DOMAIN = 'web-3d-player-stg.synergetics.ai'
