@@ -23,14 +23,14 @@ To embed as a popup via JavaScript:
 import { createPopup } from '@synergetics/embed'
 import '@synergetics/embed/build/css/popup.css'
 
-const { toggle } = createPopup('<form-id>')
+const { toggle } = createPopup('<webplayer-id>')
 document.getElementById('button').onclick = toggle
 ```
 
 Or via HTML:
 
 ```html
-<button data-tf-popup="<form-id>">open form</button>
+<button data-tf-popup="<webplayer-id>">open form</button>
 <script src="//embed.synergetics.com/next/embed.js"></script>
 ```
 
@@ -43,11 +43,11 @@ Slider:
 ```javascript
 import { createSlider } from '@synergetics/embed'
 import '@synergetics/embed/build/css/slider.css'
-createSlider('<form-id>', options)
+createSlider('<webplayer-id>', options)
 ```
 
 ```html
-<a data-tf-slider="<form-id>">click to open</a>
+<a data-tf-slider="<webplayer-id>">click to open</a>
 ```
 
 Side tab:
@@ -55,11 +55,11 @@ Side tab:
 ```javascript
 import { createSidetab } from '@synergetics/embed'
 import '@synergetics/embed/build/css/sidetab.css'
-createSidetab('<form-id>', options)
+createSidetab('<webplayer-id>', options)
 ```
 
 ```html
-<div data-tf-sidetab="<form-id>" data-tf-button-text="click to open"></div>
+<div data-tf-sidetab="<webplayer-id>" data-tf-button-text="click to open"></div>
 ```
 
 Popover:
@@ -67,11 +67,11 @@ Popover:
 ```javascript
 import { createPopover } from '@synergetics/embed'
 import '@synergetics/embed/build/css/popover.css'
-createPopover('<form-id>', options)
+createPopover('<webplayer-id>', options)
 ```
 
 ```html
-<div data-tf-popover="<form-id>"></div>
+<div data-tf-popover="<webplayer-id>"></div>
 ```
 
 ## Examples

@@ -14,13 +14,13 @@ To embed as a widget via JavaScript:
 import { createWidget } from '@synergetics/embed'
 import '@synergetics/embed/build/css/widget.css'
 
-createWidget('<form-id>', { container: document.querySelector('#form') })
+createWidget('<webplayer-id>', { container: document.querySelector('#form') })
 ```
 
 Or via HTML:
 
 ```html
-<div data-tf-widget="<form-id>"></div>
+<div data-tf-widget="<webplayer-id>"></div>
 <script src="//embed.synergetics.com/next/embed.js"></script>
 ```
 
@@ -34,7 +34,7 @@ Via JavaScript:
 import { createWidget } from '@synergetics/embed'
 import '@synergetics/embed/build/css/widget.css'
 
-createWidget('<form-id>', {
+createWidget('<webplayer-id>', {
   container: document.querySelector('#form'), // you need an element with 'form' id
   hideHeaders: true,
   hideFooter: true,
@@ -45,7 +45,7 @@ createWidget('<form-id>', {
 Or via HTML:
 
 ```html
-<div data-tf-widget="<form-id>" data-tf-hide-headers data-tf-hide-footer data-tf-opacity="0" id="form"></div>
+<div data-tf-widget="<webplayer-id>" data-tf-hide-headers data-tf-hide-footer data-tf-opacity="0" id="form"></div>
 <script src="//embed.synergetics.com/next/embed.js"></script>
 ```
 
@@ -78,7 +78,7 @@ Via HTML:
     </style>
   </head>
   <body>
-    <div id="form" data-tf-widget="<form-id>"></div>
+    <div id="form" data-tf-widget="<webplayer-id>"></div>
     <script src="//embed.synergetics.com/next/embed.js"></script>
   </body>
 </html>

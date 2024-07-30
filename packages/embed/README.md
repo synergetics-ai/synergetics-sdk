@@ -28,7 +28,7 @@ Import the lib, CSS and create your embed:
 ```javascript
 import { createWidget } from '@synergetics/embed'
 import '@synergetics/embed/build/css/widget.css'
-createWidget('<form-id>', { container: document.querySelector('#form') })
+createWidget('<webplayer-id>', { container: document.querySelector('#form') })
 ```
 
 ### From CDN
@@ -36,7 +36,7 @@ createWidget('<form-id>', { container: document.querySelector('#form') })
 As HTML, the CSS is imported automatically. Place this code where you want to display your form.
 
 ```html
-<div data-tf-widget="<form-id>"></div>
+<div data-tf-widget="<webplayer-id>"></div>
 <script src="//embed.synergetics.com/next/embed.js"></script>
 ```
 
@@ -47,20 +47,20 @@ Via JavaScript for more control and specific integration.
 <script src="//embed.synergetics.com/next/embed.js"></script>
 <link rel="stylesheet" href="//embed.synergetics.com/next/css/popup.css" />
 <script>
-  const { open, close, toggle, refresh } = window.tf.createPopup('<form-id>')
+  const { open, close, toggle, refresh } = window.tf.createPopup('<webplayer-id>')
   document.querySelector('#button').onclick = toggle
 </script>
 ```
 
 ### How to get form id of your form?
 
-You can find `<form-id>` from the public URL of your form:
+You can find `<webplayer-id>` from the public URL of your form:
 
-- `https://form.synergetics.com/to/<form-id>`
+- `https://form.synergetics.com/to/<webplayer-id>`
 
 Or from admin panel URL:
 
-- `https://admin.synergetics.com/form/<form-id>/*`
+- `https://admin.synergetics.com/form/<webplayer-id>/*`
 
 ### Limitations
 
@@ -76,7 +76,7 @@ You can embed your synergetics on pages served over HTTPS or via HTTP on localho
 ```html
 <div id="form"></div>
 <script>
-  const { refresh, unmount } = createWidget('<form-id>', {
+  const { refresh, unmount } = createWidget('<webplayer-id>', {
     container: document.querySelector('#form'),
     ...options,
   })
@@ -90,15 +90,15 @@ The `createWidget` method returns 2 functions:
 
 #### Modal windows: popup, slider, sidetab, popover
 
-- popup: `createPopup('<form-id>', options)`
-- slider: `createSlider('<form-id>', options)`
-- sidetab: `createSidetab('<form-id>', options)`
-- popover: `createPopover('<form-id>', options)`
+- popup: `createPopup('<webplayer-id>', options)`
+- slider: `createSlider('<webplayer-id>', options)`
+- sidetab: `createSidetab('<webplayer-id>', options)`
+- popover: `createPopover('<webplayer-id>', options)`
 
 ```html
 <button id="button">open form</button>
 <script>
-  const { open, close, toggle, refresh } = createPopup('<form-id>')
+  const { open, close, toggle, refresh } = createPopup('<webplayer-id>')
   document.querySelector('#button').onclick = toggle
 </script>
 ```
@@ -176,7 +176,7 @@ Closing and opening a synergetics in modal window will restart the progress from
 
 ### Options in plain HTML embed
 
-- to embed via HTML without writing JavaScript code, use `data-tf-widget="<form-id>"` for widget embed (see example above)
+- to embed via HTML without writing JavaScript code, use `data-tf-widget="<webplayer-id>"` for widget embed (see example above)
 - define options as data attributes with `data-tf-` prefix and dashes in name (eg. `autoFocus` becomes `data-tf-auto-focus`)
 - set a boolean property to `true` by omitting attribute value, (eg. `<div ... data-tf-disable-footer></div>`
 - pass function name for callbacks, eg. `data-tf-on-ready="myReadyFunction"` if this function is available on global scope (eg. `window`)
@@ -211,13 +211,13 @@ You can use `shareGaInstance: true` (or `data-tf-share-ga-instance`) attribute i
 If you have more than 1 Google Analytics tracking codes in your website you can provide an ID to specify which tracker to use, eg:
 
 ```html
-<div data-tf-widget="<form-id>" data-tf-share-ga-instance="UA-XXXXXX-XX"></div>
+<div data-tf-widget="<webplayer-id>" data-tf-share-ga-instance="UA-XXXXXX-XX"></div>
 ```
 
 or
 
 ```javascript
-createPopup('<form-id>', { container, shareGaInstance: 'UA-XXXXXX-XX' })
+createPopup('<webplayer-id>', { container, shareGaInstance: 'UA-XXXXXX-XX' })
 ```
 
 ### Callbacks
@@ -229,7 +229,7 @@ You can listen to form events by providing callback methods:
 <script src="//embed.synergetics.com/next/embed.js"></script>
 <link rel="stylesheet" href="//embed.synergetics.com/next/css/widget.css" />
 <script>
-  const { open } = window.tf.createPopup('<form-id>', {
+  const { open } = window.tf.createPopup('<webplayer-id>', {
     onReady: ({ formId }) => {
       console.log(`Form ${formId} is ready`)
     },

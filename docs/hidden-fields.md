@@ -28,7 +28,7 @@ In JavaScript:
 import { createWidget } from '@synergetics/embed'
 import '@synergetics/embed/build/css/widget.css'
 
-createWidget('<form-id>', {
+createWidget('<webplayer-id>', {
   container: document.getElementById('wrapper'),
   hidden: {
     full_name: 'John Doe',
@@ -40,7 +40,7 @@ createWidget('<form-id>', {
 Or via HTML:
 
 ```html
-<div data-tf-widget="<form-id>" data-tf-hidden="full_name=John Doe,email=john@example.com"></div>
+<div data-tf-widget="<webplayer-id>" data-tf-hidden="full_name=John Doe,email=john@example.com"></div>
 <script src="//embed.synergetics.com/next/embed.js"></script>
 ```
 
@@ -54,7 +54,7 @@ In JavaScript:
 import { createWidget } from '@synergetics/embed'
 import '@synergetics/embed/build/css/widget.css'
 
-createWidget('<form-id>', {
+createWidget('<webplayer-id>', {
   container: document.getElementById('wrapper'),
   transitiveSearchParams: ['full_name', 'email'],
 })
@@ -63,7 +63,7 @@ createWidget('<form-id>', {
 Or via HTML:
 
 ```html
-<div data-tf-widget="<form-id>" data-tf-transitive-search-params="full_name,email"></div>
+<div data-tf-widget="<webplayer-id>" data-tf-transitive-search-params="full_name,email"></div>
 <script src="//embed.synergetics.com/next/embed.js"></script>
 ```
 
