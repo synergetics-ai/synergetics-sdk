@@ -1,7 +1,7 @@
 import { getFormSubmitHandler } from './create-iframe/get-form-event-handler'
 
 // wait at least 500ms by default to make sure all calls
-// in embedded typeform can complete before closing
+// in embedded webplayer can complete before closing
 export const DEFAULT_AUTO_CLOSE_TIME = 500
 
 const getAutoCloseTime = (time?: number | boolean) => {

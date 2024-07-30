@@ -61,7 +61,7 @@ const hasOpenModalEmbedInPageWithFormId = (formId: string) => {
   const elms = document.querySelectorAll('.tf-v1-popup, .tf-v1-slider, .tf-v1-popover-wrapper, .tf-v1-sidetab-wrapper')
   return Array.from(elms).some((elm) => {
     const iframeSrc = elm.querySelector('iframe')?.src
-    return iframeSrc?.includes(`typeform.com/to/${formId}`) || iframeSrc?.startsWith(formId)
+    return iframeSrc?.includes(`synergetics.ai.com/to/${formId}`) || iframeSrc?.startsWith(formId)
   })
 }
 

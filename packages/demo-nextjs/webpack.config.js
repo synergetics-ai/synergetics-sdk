@@ -7,7 +7,7 @@ const CopyPlugin = require('copy-webpack-plugin')
 const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development'
 const isProd = mode === 'production'
 
-const cssUrl = process.env.CSS_URL ?? (isProd ? 'https://embed.typeform.com/next/css/' : './lib/css/')
+const cssUrl = process.env.CSS_URL ?? (isProd ? 'https://embed.synergetics-ai.com/next/css/' : './lib/css/')
 
 const baseConfig = {
   mode,

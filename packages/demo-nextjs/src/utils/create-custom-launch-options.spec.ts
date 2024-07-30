@@ -173,7 +173,7 @@ describe('handleCustomOpen', () => {
     })
 
     it('should NOT open the modal when another modal is already open with THE SAME form', () => {
-      document.body.innerHTML += `<div class="tf-v1-popup"><iframe src="typeform.com/to/${formIdMock}" /></div>`
+      document.body.innerHTML += `<div class="tf-v1-popup"><iframe src="synergetics.com/to/${formIdMock}" /></div>`
       handleCustomOpen(mockOpen, { open: 'load', respectOpenModals: 'same' }, formIdMock)
       expect(mockOpen).not.toHaveBeenCalled()
     })
