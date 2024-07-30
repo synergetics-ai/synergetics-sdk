@@ -86,10 +86,10 @@ If you embed via HTML, you need to pass options as attributes with `data-tf-` pr
 
 ## Options in plain HTML embed
 
-To embed via HTML without writing JavaScript code, use `data-tf-widget="<webplayer-id>"` for widget embed. You can define options as data attributes with `data-tf-` prefix and dashes in name (eg. `autoFocus` becomes `data-tf-auto-focus`). For example:
+To embed via HTML without writing JavaScript code, use `data-tf-widget="<workflow-id>"` for widget embed. You can define options as data attributes with `data-tf-` prefix and dashes in name (eg. `autoFocus` becomes `data-tf-auto-focus`). For example:
 
 ```html
-<div data-tf-popup="<webplayer-id>" data-tf-size="50" data-tf-hide-footer></div>
+<div data-tf-popup="<workflow-id>" data-tf-size="50" data-tf-hide-footer></div>
 <script src="//embed.synergetics.com/next/embed.js"></script>
 ```
 
@@ -127,7 +127,7 @@ To open a synergetics in popup 1 minute after the page is loaded you can use thi
 import { createPopup } from '@synergetics/embed'
 import '@synergetics/embed/build/css/popup.css'
 
-createPopup('<webplayer-id>', {
+createPopup('<workflow-id>', {
   open: 'time',
   openValue: 60000,
   preventReopenOnClose: true,
@@ -137,7 +137,7 @@ createPopup('<webplayer-id>', {
 Or in HTML:
 
 ```html
-<a data-tf-popup="<webplayer-id>" data-tf-open="time" data-tf-open-value="60000" data-tf-prevent-reopen-on-close></a>
+<a data-tf-popup="<workflow-id>" data-tf-open="time" data-tf-open-value="60000" data-tf-prevent-reopen-on-close></a>
 <script src="//embed.synergetics.com/next/embed.js"></script>
 ```
 

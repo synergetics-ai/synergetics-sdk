@@ -29,7 +29,7 @@ Import the component you want to use. Then render it in your React app:
 import { Widget } from '@synergetics/embed-react'
 
 const MyComponent = () => {
-  return <Widget id="<webplayer-id>" style={{ width: '50%' }} className="my-form" />
+  return <Widget id="<workflow-id>" style={{ width: '50%' }} className="my-form" />
 }
 ```
 
@@ -40,7 +40,7 @@ import { PopupButton } from '@synergetics/embed-react'
 
 const MyComponent = () => {
   return (
-    <PopupButton id="<webplayer-id>" style={{ fontSize: 20 }} className="my-button">
+    <PopupButton id="<workflow-id>" style={{ fontSize: 20 }} className="my-button">
       click to open form in popup
     </PopupButton>
   )
@@ -53,19 +53,19 @@ You can render popover and slider anywhere in your app (preferably at the end of
 import { Sidetab } from '@synergetics/embed-react'
 
 const MyComponent = () => {
-  return <Sidetab id="<webplayer-id>" buttonText="click to open" />
+  return <Sidetab id="<workflow-id>" buttonText="click to open" />
 }
 ```
 
 ### How to get form id of your form?
 
-You can find `<webplayer-id>` from the public URL of your form:
+You can find `<workflow-id>` from the public URL of your form:
 
-- `https://form.synergetics.com/to/<webplayer-id>`
+- `https://form.synergetics.com/to/<workflow-id>`
 
 Or from admin panel URL:
 
-- `https://admin.synergetics.com/form/<webplayer-id>/*`
+- `https://admin.synergetics.com/form/<workflow-id>/*`
 
 ## Configuration
 
@@ -75,7 +75,7 @@ Pass options as props to the component.
 
 ```javascript
 <PopupButton
-  id="<webplayer-id>"
+  id="<workflow-id>"
   size={60}
   hidden={{
     foo: 'Foo Value',
@@ -110,7 +110,7 @@ const ref = useRef()
 const openPopup = () => ref.current?.open()
 // ...
 <PopupButton
-  id="<webplayer-id>"
+  id="<workflow-id>"
   embedRef={ref}
 >
   click to open

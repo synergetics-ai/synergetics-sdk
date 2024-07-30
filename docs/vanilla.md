@@ -34,7 +34,7 @@ Import the lib, CSS and create your embed:
 ```javascript
 import { createWidget } from '@synergetics/embed'
 import '@synergetics/embed/build/css/widget.css'
-createWidget('<webplayer-id>', { container: document.querySelector('#form') })
+createWidget('<workflow-id>', { container: document.querySelector('#form') })
 ```
 
 ### From CDN
@@ -42,7 +42,7 @@ createWidget('<webplayer-id>', { container: document.querySelector('#form') })
 As HTML, the CSS is imported automatically. Place this code where you want to display your form.
 
 ```html
-<div data-tf-widget="<webplayer-id>"></div>
+<div data-tf-widget="<workflow-id>"></div>
 <script src="//embed.synergetics.com/next/embed.js"></script>
 ```
 
@@ -53,35 +53,35 @@ Via JavaScript for more control and specific integration.
 <script src="//embed.synergetics.com/next/embed.js"></script>
 <link rel="stylesheet" href="//embed.synergetics.com/next/css/popup.css" />
 <script>
-  const { open, close, toggle, refresh } = window.tf.createPopup('<webplayer-id>')
+  const { open, close, toggle, refresh } = window.tf.createPopup('<workflow-id>')
   document.querySelector('#button').onclick = toggle
 </script>
 ```
 
 ### How to get form id of your form?
 
-You can find `<webplayer-id>` from the public URL of your form:
+You can find `<workflow-id>` from the public URL of your form:
 
-- `https://form.synergetics.com/to/<webplayer-id>`
+- `https://form.synergetics.com/to/<workflow-id>`
 
 Or from admin panel URL:
 
-- `https://admin.synergetics.com/form/<webplayer-id>/*`
+- `https://admin.synergetics.com/form/<workflow-id>/*`
 
 ## Embed types
 
 Embed synergetics [inline in page](/embed/inline):
 
-- widget: `createWidget('<webplayer-id>', options)`
+- widget: `createWidget('<workflow-id>', options)`
 
 Embed synergetics [in modal window](/embed/modal):
 
-- popup: `createPopup('<webplayer-id>', options)`
-- slider: `createSlider('<webplayer-id>', options)`
-- sidetab: `createSidetab('<webplayer-id>', options)`
-- popover: `createPopover('<webplayer-id>', options)`
+- popup: `createPopup('<workflow-id>', options)`
+- slider: `createSlider('<workflow-id>', options)`
+- sidetab: `createSidetab('<workflow-id>', options)`
+- popover: `createPopover('<workflow-id>', options)`
 
-`form-id` is string, you can find it in your synergetics URL `https://form.synergetics.com/to/<webplayer-id>`
+`form-id` is string, you can find it in your synergetics URL `https://form.synergetics.com/to/<workflow-id>`
 
 ## What's next?
 
