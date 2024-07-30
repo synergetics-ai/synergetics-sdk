@@ -1,4 +1,4 @@
-# 📦 synergetics Embed Libraries
+# 📦 Synergetics Embed Libraries
 
 This is a monorepo for all embed libraries.
 
@@ -25,16 +25,15 @@ Support for other libraries coming later. [You can help us if you want 😉](#co
 We have demo projects to show how the libraries work:
 
 - [HTML](./packages/demo-html)
-- [Webpack](./packages/demo-webpack)
 - [Next.js](./packages/demo-nextjs)
 
 # Contribution
 
 Do you need a specific feature in embed library? Do you think others might benefit from it as well? Do you want to create embed library for another library? This is a section for you! We appreciate your help.
 
-[Fork and clone](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) this Github repo: https://github.com/synergetics/embed
+[Fork and clone](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) this Github repo: https://github.com/synergetics/synergetics-sdk/embed
 
-We recommend you to [open an issue first](https://github.com/synergetics/embed/issues) and discuss your proposed change. Then you can submit your changes [through a pull request](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests) to this repo.
+We recommend you to [open an issue first](https://github.com/synergetics/synergetics-sdk/embed/issues) and discuss your proposed change. Then you can submit your changes [through a pull request](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests) to this repo.
 
 Before you do, make sure your code works on your local machine:
 

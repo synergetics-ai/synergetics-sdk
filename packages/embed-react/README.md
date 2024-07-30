@@ -23,17 +23,17 @@ npm install --save @synergetics/embed-react
 
 ## Usage
 
-Import the component you want to use. Then render it in your React app:
+Import the component you want to use for the webplayer. Then add the avatarAssetId,authToken then render it in your React app:
 
 ```javascript
 import { Widget } from '@synergetics/embed-react'
 
 const MyComponent = () => {
-  return <Widget id="<workflow-id>" style={{ width: '50%' }} className="my-form" />
+  return <Widget id="<workflow-id>" style={{ width: '50%' }} token={"<token>"} avatarAssetId={"<avatarAssetId>"} className="container" />
 }
 ```
 
-Popup and slider components provide a button to open the embed:
+Popup and slider components provide a button to open the embed webplayer:
 
 ```javascript
 import { PopupButton } from '@synergetics/embed-react'
@@ -59,13 +59,11 @@ const MyComponent = () => {
 
 ### How to get form id of your form?
 
-You can find `<workflow-id>` from the public URL of your form:
+You can find `<workflow-id>` from the public URL of your webplayer:
 
-- `https://form.synergetics.com/to/<workflow-id>`
+- `https://web-3d-player.synergetics.ai/?wid=<workflow-id>`
 
-Or from admin panel URL:
 
-- `https://admin.synergetics.com/form/<workflow-id>/*`
 
 ## Configuration
 
@@ -91,7 +89,7 @@ Pass options as props to the component.
 </PopupButton>
 ```
 
-See all available options in [Vanilla JavaScript Embed Library README file](../embed/README.md#options). Make sure to pass props in camel case without the `data-tf-` prefix.
+See all available options in [Vanilla JavaScript Embed Library README file](../embed/README.md#options). Make sure to pass props in camel case without the `data-wp-` prefix.
 
 ### CSP nonce support
 

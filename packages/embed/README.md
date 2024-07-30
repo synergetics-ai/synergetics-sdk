@@ -52,15 +52,12 @@ Via JavaScript for more control and specific integration.
 </script>
 ```
 
-### How to get form id of your form?
+### How to get workflow id of your webplayer?
 
-You can find `<workflow-id>` from the public URL of your form:
+You can find `<workflow-id>` from the public URL of your webplayer:
 
-- `https://form.synergetics.com/to/<workflow-id>`
+- `https://https://web-3d-player.synergetics.ai/?wid=<workflow-id>`
 
-Or from admin panel URL:
-
-- `https://admin.synergetics.com/form/<workflow-id>/*`
 
 ### Limitations
 
@@ -74,10 +71,10 @@ You can embed your synergetics on pages served over HTTPS or via HTTP on localho
 #### Widget
 
 ```html
-<div id="form"></div>
+<div id="container"></div>
 <script>
   const { refresh, unmount } = createWidget('<workflow-id>', {
-    container: document.querySelector('#form'),
+    container: document.querySelector('container'),
     ...options,
   })
 </script>
@@ -105,13 +102,13 @@ The `createWidget` method returns 2 functions:
 
 Each of the `create*` methods for modal windows return 4 functions:
 
-- **open** - open the modal window (popup, slider, sidetab or popover) and display the form
-- **close** - close the modal window and hide the form
+- **open** - open the modal window (popup, slider, sidetab or popover) and display the webplayer
+- **close** - close the modal window and hide the webplayer
 - **toggle** - open when closed, close when opened
-- **refresh** - reloads the form
-- **unmount** - unmounts the form (you should use this when you implement this lib in React manually)
+- **refresh** - reloads the webplayer
+- **unmount** - unmounts the webplayer (you should use this when you implement this lib in React manually)
 
-Closing and opening a synergetics in modal window will restart the progress from the beginning. However answers will be saved in browsers local storage.
+Closing and opening a webplayer in modal window will restart the progress from the beginning. However answers will be saved in browsers local storage.
 
 ### Options
 
@@ -230,28 +227,28 @@ You can listen to form events by providing callback methods:
 <link rel="stylesheet" href="//embed.synergetics.com/next/css/widget.css" />
 <script>
   const { open } = window.tf.createPopup('<workflow-id>', {
-    onReady: ({ formId }) => {
-      console.log(`Form ${formId} is ready`)
+    onReady: ({ workflowId }) => {
+      console.log(`Webplayer ${workflowId} is ready`)
     },
-    onStarted: ({ formId, responseId }) => {
-      console.log(`Form ${formId} started with response ID ${responseId}`)
+    onStarted: ({ workflowId, responseId }) => {
+      console.log(`Webplayer ${workflowId} started with response ID ${responseId}`)
     },
-    onQuestionChanged: ({ formId, ref }) => {
-      console.log(`Question in form ${formId} changed to ${ref}`)
+    onQuestionChanged: ({ workflowId, ref }) => {
+      console.log(`Question in form ${workflowId} changed to ${ref}`)
     },
-    onHeightChanged: ({ formId, ref, height }) => {
-      console.log(`Question ${ref} in form ${formId} has height ${height}px now`)
+    onHeightChanged: ({ workflowId, ref, height }) => {
+      console.log(`Question ${ref} in form ${workflowId} has height ${height}px now`)
     },
-    onSubmit: ({ formId, responseId }) => {
-      console.log(`Form ${formId} submitted, response id: ${responseId}`)
+    onSubmit: ({ workflowId, responseId }) => {
+      console.log(`Form ${workflowId} submitted, response id: ${responseId}`)
       // to retrieve the response use `responseId` (you have to do it server-side)
       // more details: https://developer.synergetics.com/responses/
     },
-    onClose: ({ formId }) => {
-      console.log(`Modal window with form ${formId} was closed`)
+    onClose: ({ workflowId }) => {
+      console.log(`Modal window with form ${workflowId} was closed`)
     }
-    onEndingButtonClick: ({ formId, ref }) => {
-      console.log(`Ending button clicked in form ${formId}`)
+    onEndingButtonClick: ({ workflowId, ref }) => {
+      console.log(`Ending button clicked in form ${workflowId}`)
 
       // for plans with "Redirect from ending screen" feature you also receive `ref`:
       console.log(`Ending button clicked in end screen ${ref}`)
@@ -266,24 +263,24 @@ You can listen to form events by providing callback methods:
 Callback method receive payload object from the form. Each payload contains form ID to identify which form sent the event (see chaining synergeticss below):
 
 - onReady
-  - `formId` (string)
+  - `workflowId` (string)
 - onStarted
-  - `formId` (string)
+  - `workflowId` (string)
   - `responseId` (string)
 - onQuestionChanged
-  - `formId` (string)
+  - `workflowId` (string)
   - `ref` (string) identifies currently displayed question
 - onHeightChanged
-  - `formId` (string)
+  - `workflowId` (string)
   - `ref` (string) identifies currently displayed question
   - `height` (number) current height of currently displayed question
 - onSubmit
-  - `formId` (string)
+  - `workflowId` (string)
   - `responseId` (string) identifies the response, can be retrieved via [Responses API](https://developer.synergetics.com/responses/)
 - onClose
   - no payload
 - onEndingButtonClick
-  - `formId` (string)
+  - `workflowId` (string)
   - `ref` (string) identifies the end screen (_Note:_ this is available for plans with "Redirect from ending screen" feature only.)
 
 See [callbacks example in demo package](../../packages/demo-html/public/callbacks.html).
