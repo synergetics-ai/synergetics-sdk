@@ -6,141 +6,155 @@ nav_order: 15
 
 # Callback functions
 
-You can listen to various events as the respondent is interacting with the webplayer on your page.
+You can listen to various events as the respondent is interacting with the workflow on your page.
 
 Available callbacks:
 
-- **onReady** fires when the form is loaded
-- **onStarted** fires on the form "submission start" event
-- **onSubmit** fires when user submits the form
+- **onReady** fires when the workflow is loaded
+- **onStarted** fires on the workflow "submission start" event
+- **onSubmit** fires when user submits the workflow
 - **onClose** fires when user closes the modal window
-- **onQuestionChanged** fires when user navigates between form questions
+- **onQuestionChanged** fires when user navigates between workflow questions
 - **onHeightChanged** fires when height of currently displayed question changes
-- **onEndingButtonClick** fires when user clicks on the button on your Synergetics SDK ending screen (it also disables the redirect functionality)
+- **onEndingButtonClick** fires when user clicks on the button on your workflow ending screen (it also disables the redirect functionality)
+- **onChatStarted** fires when the chat interface is initiated
+- **onModelResponse** fires when the model generates a response
 
-Each callback receives a payload object with `formId` to identify the workflow id that sent the event.
+Each callback receives a payload object with `workflowId` to identify the workflow that sent the event.
 Depending on the callback there might be more data in the payload - see examples below.
 
 ## onReady
 
-The `onReady` callback will execute when the embedded webplayer is fully loaded.
+The `onReady` callback will execute when the embedded workflow is fully loaded.
 
 In JavaScript:
 
 ```javascript
-import { createWidget } from '@synergetics-sdk/embed'
-import '@synergetics-sdk/embed/build/css/widget.css'
+import { createWidget } from '@synergetics/embed'
+import '@synergetics/embed/build/css/widget.css'
 
-createWidget('<form-id>', {
-  onReady: ({ formId }) => {
-    console.log(`Form ${formId} is ready`)
+createWidget('<workflow-id>', {
+  onReady: ({ workflowId }) => {
+    console.log(`Workflow ${workflowId} is ready`)
   },
+  chatOnly: false,
+  modelOnly: false,
+  chatPosition: 'right'
 })
 ```
 
 Or in HTML:
 
 ```html
-<div data-wp-widget="<form-id>" data-wp-on-ready="ready"></div>
-<script src="//embed.synergetics-ai.com/next/embed.js"></script>
+<div data-tf-widget="<workflow-id>" data-tf-on-ready="ready" data-tf-chat-only="false" data-tf-model-only="false" data-tf-chat-position="right"></div>
+<script src="//embed.synergetics.com/next/embed.js"></script>
 <script>
   // this function needs to be available on global scope (window)
-  function ready({ formId }) {
-    console.log(`Form ${formId} is ready`)
+  function ready({ workflowId }) {
+    console.log(`Workflow ${workflowId} is ready`)
   }
 </script>
 ```
 
 ## onStarted
 
-The `onStarted` callback will execute when the embedded webplayer "submission start" even is trigerred.
+The `onStarted` callback will execute when the embedded workflow "submission start" event is triggered.
 
 In JavaScript:
 
 ```javascript
-import { createWidget } from '@synergetics-sdk/embed'
-import '@synergetics-sdk/embed/build/css/widget.css'
+import { createWidget } from '@synergetics/embed'
+import '@synergetics/embed/build/css/widget.css'
 
-createWidget('<form-id>', {
-  onStarted: ({ formId, responseId }) => {
-    console.log(`Form ${formId} started with response ID ${responseId}`)
+createWidget('<workflow-id>', {
+  onStarted: ({ workflowId, responseId }) => {
+    console.log(`Workflow ${workflowId} started with response ID ${responseId}`)
   },
+  chatOnly: false,
+  modelOnly: false,
+  chatPosition: 'right'
 })
 ```
 
 Or in HTML:
 
 ```html
-<div data-wp-widget="<form-id>" data-wp-on-started="started"></div>
-<script src="//embed.synergetics-ai.com/next/embed.js"></script>
+<div data-tf-widget="<workflow-id>" data-tf-on-started="started" data-tf-chat-only="false" data-tf-model-only="false" data-tf-chat-position="right"></div>
+<script src="//embed.synergetics.com/next/embed.js"></script>
 <script>
   // this function needs to be available on global scope (window)
-  function started({ formId }) {
-    console.log(`Form ${formId} started with response ID ${responseId}`)
+  function started({ workflowId, responseId }) {
+    console.log(`Workflow ${workflowId} started with response ID ${responseId}`)
   }
 </script>
 ```
 
 ## onSubmit
 
-The `onSubmit` callback will execute immediately after a respondent successfully submits the webplayer by clicking the "Submit" button.
+The `onSubmit` callback will execute immediately after a respondent successfully submits the workflow by clicking the "Submit" button.
 
-The event is only sent for successful submissions. If a form has validation errors or the network connection is disrupted while the respondent is completing the form, the event is not sent.
+The event is only sent for successful submissions. If a workflow has validation errors or the network connection is disrupted while the respondent is completing the workflow, the event is not sent.
 
 You can make use of submitted response by using the information passed to `onSubmit` callback:
 
 ```javascript
-import { createPopup } from '@synergetics-sdk/embed'
-import '@synergetics-sdk/embed/build/css/popup.css'
+import { createPopup } from '@synergetics/embed'
+import '@synergetics/embed/build/css/popup.css'
 
-createPopup('<form-id>', {
-  onSubmit: ({ formId, responseId }) => {
-    console.log(`Form ${formId} submitted, response id: ${responseId}`)
+createPopup('<workflow-id>', {
+  onSubmit: ({ workflowId, responseId }) => {
+    console.log(`Workflow ${workflowId} submitted, response id: ${responseId}`)
   },
+  chatOnly: false,
+  modelOnly: false,
+  chatPosition: 'right'
 })
 ```
 
 Or in HTML:
 
 ```html
-<button data-wp-popup="<form-id>" data-wp-on-submit="submit">open</button>
-<script src="//embed.synergetics-ai.com/next/embed.js"></script>
+<button data-tf-popup="<workflow-id>" data-tf-on-submit="submit" data-tf-chat-only="false" data-tf-model-only="false" data-tf-chat-position="right">open</button>
+<script src="//embed.synergetics.com/next/embed.js"></script>
 <script>
   // this function needs to be available on global scope (window)
-  function submit({ formId, responseId }) {
-    console.log(`Form ${formId} submitted, response id: ${responseId}`)
+  function submit({ workflowId, responseId }) {
+    console.log(`Workflow ${workflowId} submitted, response id: ${responseId}`)
   }
 </script>
 ```
 
 ## onClose
 
-The `onClose` callback will execute after a respondent closes the modal window the webplayer is embedded in.
+The `onClose` callback will execute after a respondent closes the modal window the workflow is embedded in.
 
-The event is sent regardless of whether the form submissions was successful.
+The event is sent regardless of whether the workflow submission was successful.
 
 In JavaScript
 
 ```javascript
-import { createPopup } from '@synergetics-sdk/embed'
-import '@synergetics-sdk/embed/build/css/popup.css'
+import { createPopup } from '@synergetics/embed'
+import '@synergetics/embed/build/css/popup.css'
 
-createPopup('<form-id>', {
-  onClose: ({ formId }) => {
-    console.log(`Modal window with form ${formId} was closed`)
+createPopup('<workflow-id>', {
+  onClose: ({ workflowId }) => {
+    console.log(`Modal window with workflow ${workflowId} was closed`)
   },
+  chatOnly: false,
+  modelOnly: false,
+  chatPosition: 'right'
 })
 ```
 
 Or in HTML:
 
 ```html
-<button data-wp-popup="<form-id>" data-wp-on-close="close">open</button>
-<script src="//embed.synergetics-ai.com/next/embed.js"></script>
+<button data-tf-popup="<workflow-id>" data-tf-on-close="close" data-tf-chat-only="false" data-tf-model-only="false" data-tf-chat-position="right">open</button>
+<script src="//embed.synergetics.com/next/embed.js"></script>
 <script>
   // this function needs to be available on global scope (window)
-  function close({ formId }) {
-    console.log(`Modal window with form ${formId} was closed`)
+  function close({ workflowId }) {
+    console.log(`Modal window with workflow ${workflowId} was closed`)
   }
 </script>
 ```
@@ -149,32 +163,35 @@ To get a full response, you need to retrieve it via [Responses API](responses/re
 
 ## onQuestionChanged
 
-The `onQuestionChanged` callback will execute whenever respondent navigates between questions. The event is sent when navigating in the form forward or backward.
+The `onQuestionChanged` callback will execute whenever respondent navigates between questions. The event is sent when navigating in the workflow forward or backward.
 
 Payload contains `ref` to identify which question is displayed.
 
 In JavaScript:
 
 ```javascript
-import { createSlider } from '@synergetics-sdk/embed'
-import '@synergetics-sdk/embed/build/css/slider.css'
+import { createSlider } from '@synergetics/embed'
+import '@synergetics/embed/build/css/slider.css'
 
-createSlider('<form-id>', {
-  onQuestionChanged: ({ formId, ref }) => {
-    console.log(`Question in form ${formId} changed to ${ref}`)
+createSlider('<workflow-id>', {
+  onQuestionChanged: ({ workflowId, ref }) => {
+    console.log(`Question in workflow ${workflowId} changed to ${ref}`)
   },
+  chatOnly: false,
+  modelOnly: false,
+  chatPosition: 'right'
 })
 ```
 
 Or in HTML:
 
 ```html
-<button data-wp-slider="<form-id>" data-wp-on-question-changed="changed">open</button>
-<script src="//embed.synergetics-ai.com/next/embed.js"></script>
+<button data-tf-slider="<workflow-id>" data-tf-on-question-changed="changed" data-tf-chat-only="false" data-tf-model-only="false" data-tf-chat-position="right">open</button>
+<script src="//embed.synergetics.com/next/embed.js"></script>
 <script>
   // this function needs to be available on global scope (window)
-  function changed({ formId, ref }) {
-    console.log(`Question in form ${formId} changed to ${ref}`)
+  function changed({ workflowId, ref }) {
+    console.log(`Question in workflow ${workflowId} changed to ${ref}`)
   }
 </script>
 ```
@@ -188,64 +205,4 @@ Payload contains `ref` to identify which question is displayed and `height` with
 In JavaScript:
 
 ```javascript
-import { createSlider } from '@synergetics-sdk/embed'
-import '@synergetics-sdk/embed/build/css/slider.css'
-
-createSlider('<form-id>', {
-  onHeightChanged: ({ formId, ref, height }) => {
-    console.log(`Question ${ref} in form ${formId} has height ${height}px now`)
-  },
-})
-```
-
-Or in HTML:
-
-```html
-<button data-wp-slider="<form-id>" data-wp-on-height-changed="changed">open</button>
-<script src="//embed.synergetics-ai.com/next/embed.js"></script>
-<script>
-  // this function needs to be available on global scope (window)
-  function changed({ formId, ref, height }) {
-    console.log(`Question ${ref} in form ${formId} has height ${height}px now`)
-  }
-</script>
-```
-
-**Tip:** To automatically resize widget embed to fit webplayer height, use `autoResize` option. You can specify minimum and maximum heights in pixels, eg. `data-wp-auto-resize="300,800"`.
-
-## onEndingButtonClick
-
-The `onEndingButtonClick` callback will execute whenever respondent clicks the button on ending screen in your webplayer.
-You can add custom functionality here, such as hide the form, navigate to another page or execute any other custom code.
-
-When you add this callback to your embed, it will disable redirect functionality of the ending screen button.
-
-In JavaScript:
-
-```javascript
-import { createSlider } from '@synergetics-sdk/embed'
-import '@synergetics-sdk/embed/build/css/slider.css'
-
-createSlider('<form-id>', {
-  onEndingButtonClick: ({ formId }) => {
-    console.log(`Ending button clicked in form ${formId}`)
-  },
-})
-```
-
-Or in HTML:
-
-```html
-<button data-wp-slider="<form-id>" data-wp-on-ending-button-click="clicked">open</button>
-<script src="//embed.synergetics-ai.com/next/embed.js"></script>
-<script>
-  // this function needs to be available on global scope (window)
-  function clicked({ formId }) {
-    console.log(`Ending button clicked in form ${formId}`)
-  }
-</script>
-```
-
-## What's next?
-
-Learn more about [contributing](/embed/contribute), or see what other open-source developers have created on the [Community projects](/community/) page.
+import { createSlider } from '@synergetics/embe

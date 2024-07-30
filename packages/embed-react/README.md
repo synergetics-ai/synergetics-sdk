@@ -1,4 +1,4 @@
-# ⚛ Typeform React Embed Library
+# ⚛ synergetics React Embed Library
 
 Embed library for [React](https://reactjs.org/).
 
@@ -12,13 +12,13 @@ Requirements:
 Install as NPM package using your favourite package manager:
 
 ```shell
-yarn add @typeform/embed-react
+yarn add @synergetics/embed-react
 ```
 
 or
 
 ```shell
-npm install --save @typeform/embed-react
+npm install --save @synergetics/embed-react
 ```
 
 ## Usage
@@ -26,7 +26,7 @@ npm install --save @typeform/embed-react
 Import the component you want to use. Then render it in your React app:
 
 ```javascript
-import { Widget } from '@typeform/embed-react'
+import { Widget } from '@synergetics/embed-react'
 
 const MyComponent = () => {
   return <Widget id="<form-id>" style={{ width: '50%' }} className="my-form" />
@@ -36,7 +36,7 @@ const MyComponent = () => {
 Popup and slider components provide a button to open the embed:
 
 ```javascript
-import { PopupButton } from '@typeform/embed-react'
+import { PopupButton } from '@synergetics/embed-react'
 
 const MyComponent = () => {
   return (
@@ -50,7 +50,7 @@ const MyComponent = () => {
 You can render popover and slider anywhere in your app (preferably at the end of the page):
 
 ```javascript
-import { Sidetab } from '@typeform/embed-react'
+import { Sidetab } from '@synergetics/embed-react'
 
 const MyComponent = () => {
   return <Sidetab id="<form-id>" buttonText="click to open" />
@@ -61,11 +61,11 @@ const MyComponent = () => {
 
 You can find `<form-id>` from the public URL of your form:
 
-- `https://form.typeform.com/to/<form-id>`
+- `https://form.synergetics.com/to/<form-id>`
 
 Or from admin panel URL:
 
-- `https://admin.typeform.com/form/<form-id>/*`
+- `https://admin.synergetics.com/form/<form-id>/*`
 
 ## Configuration
 
@@ -91,11 +91,11 @@ Pass options as props to the component.
 </PopupButton>
 ```
 
-See all available options in [Vanilla JavaScript Embed Library README file](../embed/README.md#options). Make sure to pass props in camel case without the `data-wp-` prefix.
+See all available options in [Vanilla JavaScript Embed Library README file](../embed/README.md#options). Make sure to pass props in camel case without the `data-tf-` prefix.
 
 ### CSP nonce support
 
-If the global `__webpack_nonce__` is set, its value will be used for a `nonce` attribute on the inline `<style>` block. See [#458](https://github.com/Typeform/embed/issues/458) for details.
+If the global `__webpack_nonce__` is set, its value will be used for a `nonce` attribute on the inline `<style>` block. See [#458](https://github.com/synergetics/embed/issues/458) for details.
 
 ### Passing a custom ref as `embedRef`
 
@@ -122,11 +122,11 @@ const openPopup = () => ref.current?.open()
 You can find examples for specific use-cases with React in our demos:
 
 - [Next.js (React) demo](../../packages/demo-nextjs)
-- [Codesandbox demo](https://github.com/Typeform/embed-demo#react-nextjs)
+- [Codesandbox demo](https://github.com/synergetics/embed-demo#react-nextjs)
 
 ## Local setup and development
 
-[Fork and clone](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) this Github repo: https://github.com/Typeform/embed
+[Fork and clone](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) this Github repo: https://github.com/synergetics/embed
 
 Requirements:
 
@@ -145,13 +145,13 @@ We recommend you work in a branch:
 git checkout -b cool-new-feature
 ```
 
-Build, watch for changes (in both `@typeform/embed` and `@typeform/embed-react` packages) and start a demo server too (using `demo-nextjs`):
+Build, watch for changes (in both `@synergetics/embed` and `@synergetics/embed-react` packages) and start a demo server too (using `demo-nextjs`):
 
 ```bash
 yarn demo
 ```
 
-Build and watch for changes (in `@typeform/embed-react` only):
+Build and watch for changes (in `@synergetics/embed-react` only):
 
 ```bash
 yarn dev
@@ -163,4 +163,4 @@ Run unit tests:
 yarn test
 ```
 
-See details on [contributing to this repo](https://github.com/Typeform/embed#contribution).
+See details on [contributing to this repo](https://github.com/synergetics/embed#contribution).

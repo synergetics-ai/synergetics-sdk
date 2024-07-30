@@ -9,16 +9,16 @@ updates:
       interval: weekly
     versioning-strategy: increase
     allow:
-      - dependency-name: '@typeform*'
+      - dependency-name: '@synergetics*'
     commit-message:
       prefix: 'chore'
       include: 'scope'
     labels:
       - 'dependabot'
     groups:
-      typeform:
+      synergetics:
         patterns:
-          - '@typeform*'
+          - '@synergetics*'
 
 registries:
   gh-packages:

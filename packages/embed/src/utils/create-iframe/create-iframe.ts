@@ -20,14 +20,12 @@ import { refreshIframe } from './refresh-iframe'
 type CreateIframe = {
   formId: string
   domain?: string
-  token:string
-  avatarAssetId: string
   options: CreateIframeOptions
 }
 
 type CreateIframeOptions = UrlOptions & ActionableOptions & IframeOptions
 
-export const createIframe = (type: EmbedType, { formId, domain,token,avatarAssetId, options }: CreateIframe) => {
+export const createIframe = (type: EmbedType, { formId, domain, options }: CreateIframe) => {
   const embedId = generateEmbedId()
   const {
     iframeProps = {},
@@ -40,7 +38,7 @@ export const createIframe = (type: EmbedType, { formId, domain,token,avatarAsset
     shareGaInstance,
   } = options
 
-  const src = buildIframeSrc({ formId, domain, embedId,token,avatarAssetId, type, options })
+  const src = buildIframeSrc({ formId, domain, embedId, type, options })
 
   const iframe = document.createElement('iframe')
   iframe.src = src

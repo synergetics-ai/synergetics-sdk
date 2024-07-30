@@ -35,58 +35,34 @@ const mapOptionsToQueryParams = (
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
 ): Record<string, any> => {
   const {
-    transitiveSearchParams,
-    source,
-    medium,
-    mediumVersion,
-    hideFooter,
-    hideHeaders,
-    opacity,
-    disableTracking,
-    enableSandbox,
-    shareGaInstance,
-    forceTouch,
-    displayAsFullScreenModal,
-    tracking,
-    redirectTarget,
+    wid,
+    token,
+    avatarAssetId,
+    chatOnly,
+    modelOnly,
+    chatPosition,
     autoResize,
     disableScroll,
-    onEndingButtonClick,
-    noHeading,
-    noScrollbars,
   } = options
-  const transitiveParams = getTransitiveSearchParams(transitiveSearchParams)
   const params = {
-    'synergetics-embed-id': embedId,
-    'synergetics-embed': typesToEmbed[type],
-    'synergetics-source': source,
-    'synergetics-medium': medium,
-    'synergetics-medium-version': mediumVersion,
-    'embed-hide-footer': hideFooter ? 'true' : undefined,
-    'embed-hide-headers': hideHeaders ? 'true' : undefined,
-    'embed-opacity': opacity,
-    'disable-tracking': disableTracking || enableSandbox ? 'true' : undefined,
-    '__dangerous-disable-submissions': enableSandbox ? 'true' : undefined,
-    'share-ga-instance': shareGaInstance ? 'true' : undefined,
-    'force-touch': forceTouch ? 'true' : undefined,
-    'add-placeholder-ws': type === 'widget' && displayAsFullScreenModal ? 'true' : undefined,
-    'synergetics-embed-redirect-target': redirectTarget,
-    'synergetics-embed-handles-redirect': 1,
-    'synergetics-embed-auto-resize': autoResize ? 'true' : undefined,
-    'synergetics-embed-disable-scroll': disableScroll ? 'true' : undefined,
-    'synergetics-embed-handle-ending-button-click': !!onEndingButtonClick ? 'true' : undefined,
-    'synergetics-embed-no-heading': noHeading ? 'true' : undefined,
-    'synergetics-embed-no-scrollbars': noScrollbars ? 'true' : undefined,
+    wid,
+    token,
+    avatarAssetId,
+    chatOnly: chatOnly ? 'true' : undefined,
+    modelOnly: modelOnly ? 'true' : undefined,
+    chatPosition,
+    autoResize: autoResize ? 'true' : undefined,
+    disableScroll: disableScroll ? 'true' : undefined,
   }
-  return { ...params, ...transitiveParams, ...tracking }
+  return params
 }
 
-const getBaseUrl = (formString: string,token:string,avatarAssetId:string,domain = DEFAULT_DOMAIN): URL => {
+const getBaseUrl = (formString: string, domain = DEFAULT_DOMAIN): URL => {
   if (formString.startsWith('http://') || formString.startsWith('https://')) {
     return new URL(formString)
   }
 
-  return new URL(`https://${domain}/?wid=${formString}&token=${token}&avatarAssetId=${avatarAssetId}`)
+  return new URL(`https://${domain}/to/${formString}`)
 }
 
 const makePreselectParam = (preselect?: Record<string, string>) => {
@@ -130,10 +106,10 @@ const buildHashParams = (url: URL, options: BaseOptions & UrlOptions): string =>
 }
 
 export const buildIframeSrc = (params: BuildIframeSrcOptions): string => {
-  const { domain, formId, type, embedId, options ,avatarAssetId,token} = params
+  const { domain, formId, type, embedId, options } = params
   const queryParams = mapOptionsToQueryParams(type, embedId, addDefaultUrlOptions(options))
 
-  const url = getBaseUrl(formId,token,avatarAssetId,domain)
+  const url = getBaseUrl(formId, domain)
 
   Object.entries(queryParams)
     .filter(([, paramValue]) => isDefined(paramValue))
@@ -154,8 +130,6 @@ export const buildIframeSrc = (params: BuildIframeSrcOptions): string => {
 type BuildIframeSrcOptions = {
   domain?: string
   formId: string
-  token:string
-  avatarAssetId: string
   embedId: string
   type: EmbedType
   options: BaseOptions & UrlOptions

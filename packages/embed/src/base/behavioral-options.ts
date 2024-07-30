@@ -2,7 +2,7 @@ import { BehavioralType } from './behavioral-type'
 
 export type BehavioralOptions = {
   /**
-   * Your webplayer will launch based on behavioral triggers.
+   * Your synergetics will launch based on behavioral triggers.
    *
    * @type {BehavioralType}
    */
@@ -20,8 +20,8 @@ export type BehavioralOptions = {
    */
   preventReopenOnClose?: boolean
   /**
-   * Do not open if there already is a modal with webplayer open.
-   *  - all: any other webplayer
+   * Do not open if there already is a modal with synergetics open.
+   *  - all: any other synergetics
    *  - same: only if the form is the same as this one (same form ID)
    */
   respectOpenModals?: 'all' | 'same'

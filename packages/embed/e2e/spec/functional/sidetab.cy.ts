@@ -23,7 +23,7 @@ function testSidetab(path: string, title: string) {
     it('should open sidetab', () => {
       cy.get('.tf-v1-sidetab-button').click()
       cy.get('.tf-v1-sidetab-wrapper').should('be.visible')
-      cy.get('.tf-v1-sidetab-wrapper iframe').invoke('attr', 'src').should('contain', 'form.typeform.com/to/')
+      cy.get('.tf-v1-sidetab-wrapper iframe').invoke('attr', 'src').should('contain', 'form.synergetics.com/to/')
       cy.get('.tf-v1-sidetab-button [data-testid="default-icon"]').should('not.exist')
       cy.get('.tf-v1-sidetab-button [data-testid="tf-v1-sidetab-button-icon"]').should('exist')
     })
@@ -31,7 +31,7 @@ function testSidetab(path: string, title: string) {
     it('should pass options as query param', () => {
       cy.get('.tf-v1-sidetab-wrapper iframe')
         .invoke('attr', 'src')
-        .should('contain', 'typeform-embed=popup-side-panel&typeform-source=localhost&typeform-medium=demo-test')
+        .should('contain', 'synergetics-embed=popup-side-panel&synergetics-source=localhost&synergetics-medium=demo-test')
     })
 
     it('should pass hidden fields as hash', () => {

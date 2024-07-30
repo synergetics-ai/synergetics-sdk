@@ -8,7 +8,7 @@ import React, {
   useMemo,
   useRef,
 } from 'react'
-import { ButtonProps } from '@typeform/embed'
+import { ButtonProps } from '@synergetics/embed'
 
 import { genericEmbed, GenericEmbed } from '../utils'
 
@@ -26,7 +26,14 @@ type ButtonComponentBaseProps = {
 
 export type ButtonComponentProps<T> = T & ButtonComponentBaseProps
 
-type CreateFnProps<T> = Omit<ButtonComponentProps<T>, keyof ButtonComponentBaseProps>
+type CreateFnProps<T> = Omit<ButtonComponentProps<T>, keyof ButtonComponentBaseProps> & {
+  wid?: string
+  token?: string
+  avatarAssetId?: string
+  chatOnly?: boolean
+  modelOnly?: boolean
+  chatPosition?: 'left' | 'right' | 'top' | 'bottom'
+}
 
 type CreateFn<T> = (id: string, props: CreateFnProps<T>) => GenericEmbed
 
@@ -45,7 +52,16 @@ function makeButtonComponent<T>(createFn: CreateFn<T>, cssFilename: string) {
     const ref = embedRef || internalRef
 
     useEffect(() => {
-      ref.current = createFn(id, props)
+      const { wid, token, avatarAssetId, chatOnly, modelOnly, chatPosition, ...otherProps } = props
+      ref.current = createFn(id, { 
+        ...otherProps, 
+        wid, 
+        token, 
+        avatarAssetId, 
+        chatOnly, 
+        modelOnly, 
+        chatPosition 
+      })
       return () => ref.current?.unmount()
     }, [id, props, ref])
 
@@ -62,7 +78,7 @@ function makeButtonComponent<T>(createFn: CreateFn<T>, cssFilename: string) {
 
     return (
       <>
-        <InlineStyle filename={cssFilename} />
+        <InlineStyle key={`${id}-${cssFilename}`} filename={cssFilename} />
         {triggerElement}
       </>
     )

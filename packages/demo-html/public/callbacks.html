@@ -15,62 +15,62 @@
   <body>
     <div
       id="wrapper"
-      data-wp-widget="HLjqXS5W"
-      data-wp-source="localhost"
-      data-wp-on-ready="onWebPlayerReady"
-      data-wp-on-started="onWebPlayerStarted"
-      data-wp-on-submit="onWebPlayerSubmit"
-      data-wp-on-question-changed="onWebPlayerQuestionChanged"
-      data-wp-on-height-changed="onWebPlayerHeightChanged"
-      data-wp-on-close="onWebPlayerClose"
-      data-wp-on-ending-button-click="onWebPlayerEndingButtonClick"
+      data-tf-widget="HLjqXS5W"
+      data-tf-source="localhost"
+      data-tf-on-ready="onsynergeticsReady"
+      data-tf-on-started="onsynergeticsStarted"
+      data-tf-on-submit="onsynergeticsSubmit"
+      data-tf-on-question-changed="onsynergeticsQuestionChanged"
+      data-tf-on-height-changed="onsynergeticsHeightChanged"
+      data-tf-on-close="onsynergeticsClose"
+      data-tf-on-ending-button-click="onsynergeticsEndingButtonClick"
     ></div>
     <button
-      data-wp-popup="HLjqXS5W"
-      data-wp-source="localhost"
-      data-wp-on-ready="onWebPlayerReady"
-      data-wp-on-started="onWebPlayerStarted"
-      data-wp-on-submit="onWebPlayerSubmit"
-      data-wp-on-question-changed="onWebPlayerQuestionChanged"
-      data-wp-on-close="onWebPlayerClose"
-      data-wp-on-ending-button-click="onWebPlayerEndingButtonClick"
+      data-tf-popup="HLjqXS5W"
+      data-tf-source="localhost"
+      data-tf-on-ready="onsynergeticsReady"
+      data-tf-on-started="onsynergeticsStarted"
+      data-tf-on-submit="onsynergeticsSubmit"
+      data-tf-on-question-changed="onsynergeticsQuestionChanged"
+      data-tf-on-close="onsynergeticsClose"
+      data-tf-on-ending-button-click="onsynergeticsEndingButtonClick"
     >
       open popup
     </button>
     <script src="./lib/embed.js"></script>
     <script>
       // customers are often defining callbacks AFTER embedding the form
-      // https://github.com/WebPlayer/embed/issues/363
+      // https://github.com/synergetics/embed/issues/363
 
-      function onWebPlayerReady(data) {
+      function onsynergeticsReady(data) {
         alert('onReady')
         console.log('form ready', data)
       }
 
-      function onWebPlayerStarted(data) {
+      function onsynergeticsStarted(data) {
         alert('onStarted')
         console.log('form started', data)
       }
 
-      function onWebPlayerSubmit(data) {
+      function onsynergeticsSubmit(data) {
         alert('onSubmit')
         console.log('form submitted', data)
       }
 
-      function onWebPlayerQuestionChanged(data) {
+      function onsynergeticsQuestionChanged(data) {
         console.log('form question changed', data)
       }
 
-      function onWebPlayerHeightChanged(data) {
+      function onsynergeticsHeightChanged(data) {
         console.log('form height changed', data)
       }
 
-      function onWebPlayerClose(data) {
+      function onsynergeticsClose(data) {
         alert('onClose')
         console.log('modal window closed', data)
       }
 
-      function onWebPlayerEndingButtonClick(data) {
+      function onsynergeticsEndingButtonClick(data) {
         alert('onEndingButtonClick')
         console.log('button on ending screen clicked', data)
       }

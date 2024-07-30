@@ -118,7 +118,7 @@ const defaultOptions = {
 
 export const createPopover = (formId: string, userOptions: PopoverOptions = {}): Popover => {
   const { domain, ...options } = { ...defaultOptions, ...userOptions }
-  const { iframe, embedId, refresh, focus } = createIframe('popover', { formId, domain,avatarAssetId:'',token:'', options })
+  const { iframe, embedId, refresh, focus } = createIframe('popover', { formId, domain, options })
 
   let openHandler: RemoveHandler
 

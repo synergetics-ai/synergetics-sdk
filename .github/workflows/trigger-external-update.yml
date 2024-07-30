@@ -13,12 +13,12 @@ jobs:
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.GH_TOKEN }}
-          repository: Typeform/embed-demo
+          repository: synergetics/embed-demo
           event-type: update_embed_demos
 
       - name: update_embed_docs
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.GH_TOKEN }}
-          repository: Typeform/developers
+          repository: synergetics/developers
           event-type: update_embed_docs

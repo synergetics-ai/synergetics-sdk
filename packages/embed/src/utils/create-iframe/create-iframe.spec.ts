@@ -29,7 +29,7 @@ describe('create-iframe', () => {
 
     beforeEach(() => {
       // eslint-disable-next-line prefer-destructuring
-      iframe = createIframe('widget', { formId: 'form-id',avatarAssetId:'',token:'', options }).iframe
+      iframe = createIframe('widget', { formId: 'form-id', options }).iframe
     })
 
     it('should call buildIframeSrc', () => {

@@ -1,4 +1,4 @@
-import { PopupButton } from '@synergetics-sdk/embed-react'
+import { PopupButton } from '@synergetics/embed-react'
 
 export default function PopupPage({ id }: { id: string }) {
   const buttonStyle = {

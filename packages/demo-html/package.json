@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "main": "index.js",
-  "author": "Synergetics AI",
+  "author": "synergetics",
   "license": "MIT",
   "scripts": {
-    "start": "yarn http-server -p 9091 -c-1 ./public"
+    "start": "yarn http-server -p 9090 -c-1 ./public"
   }
 }

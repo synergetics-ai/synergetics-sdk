@@ -11,7 +11,14 @@ type InitializerComponentBaseProps = {
 
 export type InitializerComponentProps<T> = T & InitializerComponentBaseProps
 
-type CreateFnProps<T> = Omit<InitializerComponentProps<T>, keyof InitializerComponentBaseProps>
+type CreateFnProps<T> = Omit<InitializerComponentProps<T>, keyof InitializerComponentBaseProps> & {
+  wid?: string
+  token?: string
+  avatarAssetId?: string
+  chatOnly?: boolean
+  modelOnly?: boolean
+  chatPosition?: 'left' | 'right' | 'top' | 'bottom'
+}
 
 type CreateFn<T> = (id: string, props: CreateFnProps<T>) => GenericEmbed
 
@@ -21,13 +28,22 @@ function makeInitializerComponent<T>(createFn: CreateFn<T>, cssFilename: string)
     const ref = embedRef || internalRef
 
     useEffect(() => {
-      ref.current = createFn(id, props)
+      const { wid, token, avatarAssetId, chatOnly, modelOnly, chatPosition, ...otherProps } = props
+      ref.current = createFn(id, { 
+        ...otherProps, 
+        wid, 
+        token, 
+        avatarAssetId, 
+        chatOnly, 
+        modelOnly, 
+        chatPosition 
+      })
       return () => {
         ref.current?.unmount()
       }
     }, [id, props, ref])
 
-    return <InlineStyle filename={cssFilename} />
+    return <InlineStyle key={`${id}-${cssFilename}`} filename={cssFilename} />
   }
 }
 

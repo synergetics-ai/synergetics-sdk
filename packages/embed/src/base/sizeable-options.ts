@@ -24,4 +24,22 @@ export type SizeableOptions = WidthOption & {
    * Make the widget embed full screen, resize on viewport change to fit window
    */
   fullScreen?: boolean
+  /**
+   * Show only the chat window.
+   *
+   * @type {boolean}
+   */
+  chatOnly?: boolean
+  /**
+   * Show only the 3D model.
+   *
+   * @type {boolean}
+   */
+  modelOnly?: boolean
+  /**
+   * Position of the chat window.
+   *
+   * @type {'left' | 'right' | 'top' | 'bottom'}
+   */
+  chatPosition?: 'left' | 'right' | 'top' | 'bottom'
 }

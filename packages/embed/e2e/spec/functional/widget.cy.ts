@@ -19,13 +19,13 @@ function testWidget(path: string, title: string) {
 
     it('should display widget', () => {
       cy.get('.tf-v1-widget iframe').should('be.visible')
-      cy.get('.tf-v1-widget iframe').invoke('attr', 'src').should('contain', 'form.typeform.com/to/')
+      cy.get('.tf-v1-widget iframe').invoke('attr', 'src').should('contain', 'form.synergetics.com/to/')
     })
 
     it('should pass options as query param', () => {
       cy.get('.tf-v1-widget iframe')
         .invoke('attr', 'src')
-        .should('contain', 'typeform-embed=embed-widget&typeform-source=localhost&typeform-medium=demo-test')
+        .should('contain', 'synergetics-embed=embed-widget&synergetics-source=localhost&synergetics-medium=demo-test')
     })
 
     it('should pass hidden fields as hash', () => {

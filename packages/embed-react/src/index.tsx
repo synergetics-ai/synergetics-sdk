@@ -7,7 +7,7 @@ import {
   PopoverOptions,
   createSidetab,
   SidetabOptions,
-} from '@synergetics-sdk/embed'
+} from '@synergetics/embed'
 
 import {
   ButtonComponentProps,

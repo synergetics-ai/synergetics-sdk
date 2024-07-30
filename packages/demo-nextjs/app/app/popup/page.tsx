@@ -1,6 +1,6 @@
 'use client'
 
-import { Popover, PopupButton } from '@synergetics-sdk/embed-react'
+import { Popover, PopupButton } from '@synergetics/embed-react'
 import { useSearchParams } from 'next/navigation'
 
 import { defaultFormId } from '../../../shared/constants'
@@ -48,7 +48,7 @@ export default function Page() {
         onReady={handleOnReady}
         medium="demo-test"
         hidden={{ foo: 'foo value', bar: 'bar value' }}
-        buttonProps={{ ariaLabel: 'Webplayer Button', dataTestid: 'demo-button' }}
+        buttonProps={{ ariaLabel: 'synergetics Button', dataTestid: 'demo-button' }}
         tooltip="welcome"
       />
     </main>

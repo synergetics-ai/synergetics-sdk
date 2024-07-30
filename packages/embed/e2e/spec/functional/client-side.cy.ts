@@ -5,7 +5,7 @@ describe('Widget laoded client-side', () => {
 
   it('should display widget', () => {
     cy.get('#content .tf-v1-widget iframe').should('be.visible')
-    cy.get('#content .tf-v1-widget iframe').invoke('attr', 'src').should('contain', 'form.typeform.com/to/')
+    cy.get('#content .tf-v1-widget iframe').invoke('attr', 'src').should('contain', 'form.synergetics.com/to/')
   })
 
   it('should not display widget added after lib is loaded', () => {
@@ -23,7 +23,7 @@ describe('Widget laoded client-side', () => {
 
     it('should display second widget', () => {
       cy.get('#more-content .tf-v1-widget iframe').should('be.visible')
-      cy.get('#more-content .tf-v1-widget iframe').invoke('attr', 'src').should('contain', 'form.typeform.com/to/')
+      cy.get('#more-content .tf-v1-widget iframe').invoke('attr', 'src').should('contain', 'form.synergetics.com/to/')
     })
 
     it('should display 2 widgets now', () => {

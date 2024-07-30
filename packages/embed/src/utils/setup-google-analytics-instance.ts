@@ -48,8 +48,8 @@ const getTrackingFromDataLayer = (): string | undefined => {
 
 const logErrorMessage = (reason?: string) => {
   logError(
-    `Whoops! You enabled the shareGaInstance feature in your typeform embed but ${reason}.\n\n` +
-      'Make sure to include Google Analytics Javascript code before the Typeform Embed Javascript ' +
+    `Whoops! You enabled the shareGaInstance feature in your synergetics embed but ${reason}.\n\n` +
+      'Make sure to include Google Analytics Javascript code before the synergetics Embed Javascript ' +
       'code in your page and use correct tracker ID.\n\n' +
       'It is also possible the Google Analytics was blocked by your adblock plugin.'
   )

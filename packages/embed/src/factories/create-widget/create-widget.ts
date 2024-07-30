@@ -47,9 +47,7 @@ export const createWidget = (formId: string, options: WidgetOptions): Widget => 
     widgetOptions.autoResize = false
   }
 
-  const {avatarAssetId,token} = widgetOptions
-
-  const { embedId, iframe, refresh, focus } = createIframe('widget', { formId, domain,avatarAssetId,token, options: widgetOptions })
+  const { embedId, iframe, refresh, focus } = createIframe('widget', { formId, domain, options: widgetOptions })
   const widget = buildWidget(iframe, widgetOptions.width, widgetOptions.height)
 
   if (widgetOptions.fullScreen) {

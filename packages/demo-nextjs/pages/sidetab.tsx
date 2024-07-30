@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { GenericEmbed, Sidetab } from '@typeform/embed-react'
+import { GenericEmbed, Sidetab } from '@synergetics/embed-react'
 
 export default function SidetabPage({ id }: { id: string }) {
   const sidetabRef = useRef<GenericEmbed>()

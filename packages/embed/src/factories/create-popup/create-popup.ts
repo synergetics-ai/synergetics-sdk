@@ -71,7 +71,7 @@ export const createPopup = (formId: string, userOptions: PopupOptions = {}): Pop
 
   const { width, height, size = POPUP_SIZE, onClose, domain, ...options } = userOptions
 
-  const { iframe, embedId, refresh, focus } = createIframe('popup', { formId, domain,avatarAssetId:'',token:'', options })
+  const { iframe, embedId, refresh, focus } = createIframe('popup', { formId, domain, options })
   const scrollInitialState = document.body.style.overflow
   let openHandler: RemoveHandler
 

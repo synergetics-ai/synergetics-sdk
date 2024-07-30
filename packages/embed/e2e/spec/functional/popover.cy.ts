@@ -22,7 +22,7 @@ function testPopover(path: string, title: string) {
     it('should open popover', () => {
       cy.get('.tf-v1-popover-button').click()
       cy.get('.tf-v1-popover-wrapper').should('be.visible')
-      cy.get('.tf-v1-popover-wrapper iframe').invoke('attr', 'src').should('contain', 'form.typeform.com/to/')
+      cy.get('.tf-v1-popover-wrapper iframe').invoke('attr', 'src').should('contain', 'form.synergetics.com/to/')
       cy.get('.tf-v1-popover-button [data-testid="default-icon"]').should('not.exist')
       cy.get('.tf-v1-popover-button [data-testid="tf-v1-popover-button-icon"]').should('exist')
     })
@@ -30,7 +30,7 @@ function testPopover(path: string, title: string) {
     it('should pass options as query param', () => {
       cy.get('.tf-v1-popover-wrapper iframe')
         .invoke('attr', 'src')
-        .should('contain', 'typeform-embed=popup-popover&typeform-source=localhost&typeform-medium=demo-test')
+        .should('contain', 'synergetics-embed=popup-popover&synergetics-source=localhost&synergetics-medium=demo-test')
     })
 
     it('should pass hidden fields as hash', () => {

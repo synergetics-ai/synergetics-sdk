@@ -11,11 +11,6 @@ export type WidgetOptions = BaseOptions &
      * @type {HTMLElement}
      */
     container: HTMLElement
-    //Auth Token for the webplayer
-    token:string
-
-    //Bot Asset ID for rendering the agent
-    avatarAssetId:string
     /**
      * Overrides fullscreen modal on mobile.
      *

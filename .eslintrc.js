@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ['@typeform/eslint-config', 'prettier', 'plugin:prettier/recommended'],
+  extends: ['@synergetics/eslint-config', 'prettier', 'plugin:prettier/recommended'],
 }

@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { GenericEmbed, SliderButton } from '@typeform/embed-react'
+import { GenericEmbed, SliderButton } from '@synergetics/embed-react'
 
 export default function Slider({ id }: { id: string }) {
   const sliderRef = useRef<GenericEmbed>()

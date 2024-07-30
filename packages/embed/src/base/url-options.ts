@@ -6,43 +6,43 @@ export type UrlOptions = {
    */
   domain?: string
   /**
-   * Domain name of the site using the SDK.
+   * Workspace ID for the 3D player.
    *
    * @type {string}
    */
-  source?: string
+  wid?: string
   /**
-   * Name of the plugin built on top of the SDK.
+   * Authentication token.
    *
    * @type {string}
    */
-  medium?: string
+  token?: string
   /**
-   * Version of the plugin built on top of the SDK.
+   * Avatar asset ID.
    *
    * @type {string}
    */
-  mediumVersion?: string
+  avatarAssetId?: string
   /**
-   * Parameters that we want to transfert from the URL to the webplayer as hidden fields.
+   * Parameters that we want to transfert from the URL to the synergetics as hidden fields.
    *
    * @type {string[]}
    */
   transitiveSearchParams?: string[] | boolean
   /**
-   * Hide webplayer footer, that appears showing the progress bar and the navigation buttons.
+   * Hide synergetics footer, that appears showing the progress bar and the navigation buttons.
    *
    * @type {boolean}
    */
   hideFooter?: boolean
   /**
-   * Hide webplayer header, that appears when you have a Question group, or a long question that you need to scroll through to answer, like a Multiple Choice block.
+   * Hide synergetics header, that appears when you have a Question group, or a long question that you need to scroll through to answer, like a Multiple Choice block.
    *
    * @type {boolean}
    */
   hideHeaders?: boolean
   /**
-   * You can make your webplayer's background totally transparent, or opaque. (For example, to have a video as a background).
+   * You can make your synergetics's background totally transparent, or opaque. (For example, to have a video as a background).
    *
    * @type {number}
    */
@@ -54,7 +54,7 @@ export type UrlOptions = {
    */
   disableTracking?: boolean
   /**
-   * Allows to share the Google instance of the page with the webplayer in the embed.
+   * Allows to share the Google instance of the page with the synergetics in the embed.
    * If string value is provided it specifies which Google Analytics instance to share (in case there are more in the host page).
    *
    * @type {string | boolean}

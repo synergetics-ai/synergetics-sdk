@@ -104,15 +104,15 @@ jobs:
       - run: npm config set '//npm.pkg.github.com/:_authToken' $GH_TOKEN
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-      - run: npm config set @typeform:registry https://npm.pkg.github.com/ # install jarvis from github
-      - run: yarn add -W @typeform/jarvis
+      - run: npm config set @synergetics:registry https://npm.pkg.github.com/ # install jarvis from github
+      - run: yarn add -W @synergetics/jarvis
       - run: git checkout HEAD -- package.json # do not save jarvis dependency to package.json because it is private (the file is committed by semantic-release to bump version)
 
       - run: yarn release:preview
         env:
-          AWS_ASSETS_BUCKET: 'typeform-public-assets/embed'
+          AWS_ASSETS_BUCKET: 'synergetics-public-assets/embed'
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_KEY }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           JARVIS_NOTIFY_PREVIEW_TEMPLATE: ${{ secrets.JARVIS_NOTIFY_PREVIEW_TEMPLATE }}
-          PUBLIC_CDN_URL: 'https://embed.typeform.com'
+          PUBLIC_CDN_URL: 'https://embed.synergetics.com'

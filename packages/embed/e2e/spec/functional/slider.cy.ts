@@ -17,13 +17,13 @@ function testSlider(path: string, title: string) {
     it('should open slider', () => {
       cy.get('button').first().click()
       cy.get('.tf-v1-slider').should('be.visible')
-      cy.get('.tf-v1-slider iframe').invoke('attr', 'src').should('contain', 'form.typeform.com/to/')
+      cy.get('.tf-v1-slider iframe').invoke('attr', 'src').should('contain', 'form.synergetics.com/to/')
     })
 
     it('should pass options as query param', () => {
       cy.get('.tf-v1-slider iframe')
         .invoke('attr', 'src')
-        .should('contain', 'typeform-embed=popup-drawer&typeform-source=localhost&typeform-medium=demo-test')
+        .should('contain', 'synergetics-embed=popup-drawer&synergetics-source=localhost&synergetics-medium=demo-test')
     })
 
     it('should close slider', () => {

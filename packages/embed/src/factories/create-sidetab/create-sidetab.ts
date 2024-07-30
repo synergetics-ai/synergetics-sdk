@@ -156,7 +156,7 @@ const replaceElementChild = (childToReplace: HTMLElement, newChild: HTMLElement)
 
 export const createSidetab = (formId: string, userOptions: SidetabOptions = {}): Sidetab => {
   const { domain, ...options } = { ...defaultOptions, ...userOptions }
-  const { iframe, embedId, refresh, focus } = createIframe('side-tab', { formId, domain,avatarAssetId:'',token:'', options })
+  const { iframe, embedId, refresh, focus } = createIframe('side-tab', { formId, domain, options })
   const sidetab = buildSidetab(options.width, options.height, options.top, options.bottom)
   const wrapper = buildWrapper()
   const spinner = buildSpinner()

@@ -15,7 +15,7 @@ describe('create-slider', () => {
         jest.runAllTimers()
       })
 
-      it('should append typeform slider to the container', () => {
+      it('should append synergetics slider to the container', () => {
         expect(containerAppendSpy).toHaveBeenCalledTimes(1)
       })
 
@@ -59,13 +59,13 @@ describe('create-slider', () => {
       const container = document.createElement('div')
       const containerRemoveChildSpy = jest.spyOn(container, 'removeChild')
 
-      it('should not remove typeform slider from the container if it was not open', () => {
+      it('should not remove synergetics slider from the container if it was not open', () => {
         createSlider('url', { container }).close()
         jest.runAllTimers()
         expect(containerRemoveChildSpy).toHaveBeenCalledTimes(0)
       })
 
-      it('should remove typeform slider from the container', () => {
+      it('should remove synergetics slider from the container', () => {
         const slider = createSlider('url', { container })
         slider.open()
         jest.runAllTimers()

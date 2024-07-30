@@ -4,9 +4,9 @@ nav_title: Vanilla Embed Library
 nav_order: 10
 ---
 
-# Syngertics SDK Vanilla Embed Library
+# synergetics Vanilla Embed Library
 
-**[Syngertics-SDK/embed](https://www.npmjs.com/package/@synergetics-sdk/embed)** is the core embed library that lets you embed webplayers to your website using vanilla Javascript.
+**[synergetics/embed](https://www.npmjs.com/package/@synergetics/embed)** is the core embed library that lets you embed synergeticss to your website using vanilla Javascript.
 
 ## Installation
 
@@ -20,21 +20,21 @@ Requirements:
 Install using your favourite package manager:
 
 ```shell
-yarn add @synergetics-sdk/embed
+yarn add @synergetics/embed
 ```
 
 or
 
 ```shell
-npm install --save @synergetics-sdk/embed
+npm install --save @synergetics/embed
 ```
 
 Import the lib, CSS and create your embed:
 
 ```javascript
-import { createWidget } from '@synergetics-sdk/embed'
-import '@synergetics-sdk/embed/build/css/widget.css'
-createWidget('<webplayer-id>', { container: document.querySelector('#form') })
+import { createWidget } from '@synergetics/embed'
+import '@synergetics/embed/build/css/widget.css'
+createWidget('<form-id>', { container: document.querySelector('#form') })
 ```
 
 ### From CDN
@@ -42,43 +42,49 @@ createWidget('<webplayer-id>', { container: document.querySelector('#form') })
 As HTML, the CSS is imported automatically. Place this code where you want to display your form.
 
 ```html
-<div data-wp-widget="<webplayer-id>"></div>
-<script src="//embed.synergetics-ai.com/next/embed.js"></script>
+<div data-tf-widget="<form-id>"></div>
+<script src="//embed.synergetics.com/next/embed.js"></script>
 ```
 
 Via JavaScript for more control and specific integration.
 
 ```html
 <button id="button">open form</button>
-<script src="//embed.synergetics-ai.com/next/embed.js"></script>
-<link rel="stylesheet" href="//embed.synergetics-ai.com/next/css/popup.css" />
+<script src="//embed.synergetics.com/next/embed.js"></script>
+<link rel="stylesheet" href="//embed.synergetics.com/next/css/popup.css" />
 <script>
-  const { open, close, toggle, refresh } = window.tf.createPopup('<webplayer-id>')
+  const { open, close, toggle, refresh } = window.tf.createPopup('<form-id>')
   document.querySelector('#button').onclick = toggle
 </script>
 ```
 
 ### How to get form id of your form?
 
-You can find `<webplayer-id>` from the public URL of your form:
+You can find `<form-id>` from the public URL of your form:
 
-- `https://web-3d-player-stg.synergetics.ai/?wid=<webplayer-id>`
+- `https://form.synergetics.com/to/<form-id>`
+
+Or from admin panel URL:
+
+- `https://admin.synergetics.com/form/<form-id>/*`
 
 ## Embed types
 
-Embed webplayer [inline in page](/embed/inline):
+Embed synergetics [inline in page](/embed/inline):
 
-- widget: `createWidget('<webplayer-id>', options)`
+- widget: `createWidget('<form-id>', options)`
 
-Embed webplayer [in modal window](/embed/modal):
+Embed synergetics [in modal window](/embed/modal):
 
-- popup: `createPopup('<webplayer-id>', options)`
-- slider: `createSlider('<webplayer-id>', options)`
-- sidetab: `createSidetab('<webplayer-id>', options)`
-- popover: `createPopover('<webplayer-id>', options)`
+- popup: `createPopup('<form-id>', options)`
+- slider: `createSlider('<form-id>', options)`
+- sidetab: `createSidetab('<form-id>', options)`
+- popover: `createPopover('<form-id>', options)`
 
-`webplayer-id` is string, you can find it in your webplayer URL `https://web-3d-player-stg.synergetics.ai/?wid=<webplayer-id>`
+`form-id` is string, you can find it in your synergetics URL `https://form.synergetics.com/to/<form-id>`
 
 ## What's next?
 
-If you want to create a form so you can embed it, sign up for a Synergetics AI (https://synergetics.ai/) account.
+Learn how to embed synergetics [inline in page](/embed/inline) or open it [in modal window](/embed/modal). Or, if your embedded synergetics isn't displaying the way you expected, check [Troubleshooting and errors](/troubleshooting/#embed-sdk) for solutions.
+
+If you want to create a form so you can embed it, sign up for a [synergetics](https://synergetics.com) account or head to our documentation for the [Create API](/create/).

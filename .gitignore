@@ -64,3 +64,4 @@ dist
 **/cypress/videos
 **/cypress/fixtures
 packages/embed/vrt.json
+.aider*

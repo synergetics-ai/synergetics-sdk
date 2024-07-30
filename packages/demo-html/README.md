@@ -1,17 +1,17 @@
 # Static HTML Demo
 
-Typeform can be embedded with 2 lines of code:
+synergetics can be embedded with 2 lines of code:
 
 ```html
-<div data-wp-widget="<form id>"></div>
-<script src="//embed.typeform.com/next/embed.js"></script>
+<div data-tf-widget="<form id>"></div>
+<script src="//embed.synergetics.com/next/embed.js"></script>
 ```
 
 For more control you can use provided javascript methods:
 
 ```html
-<script src="//embed.typeform.com/next/embed.js"></script>
-<link rel="stylesheet" href="//embed.typeform.com/next/css/popup.css" />
+<script src="//embed.synergetics.com/next/embed.js"></script>
+<link rel="stylesheet" href="//embed.synergetics.com/next/css/popup.css" />
 <script>
   const { open, close, toggle, refresh } = window.tf.createPopup('<form id>')
 </script>
@@ -24,4 +24,4 @@ For more control you can use provided javascript methods:
 
 ## Run demo in CodeSandbox
 
-See [embed-demo repository](https://github.com/Typeform/embed-demo#html) for standalone examples deployable to [CodeSandbox](https://codesandbox.io/).
+See [embed-demo repository](https://github.com/synergetics/embed-demo#html) for standalone examples deployable to [CodeSandbox](https://codesandbox.io/).

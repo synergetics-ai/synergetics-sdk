@@ -1,5 +1,4 @@
-import { Widget } from '@synergetics-sdk/embed-react'
-import { avatarAssetId, dummyToken, workflowId } from '../shared/constants'
+import { Widget } from '@synergetics/embed-react'
 
 export default function HomePage({ id }: { id: string }) {
   const widgetContainerStyle = {
@@ -13,9 +12,7 @@ export default function HomePage({ id }: { id: string }) {
       <p>Embed widget &lt;3 Next.js</p>
 
       <Widget
-        id={workflowId}
-        token={dummyToken}
-        avatarAssetId={avatarAssetId}
+        id={id}
         style={widgetContainerStyle}
         medium="demo-test"
         hidden={{ foo: 'foo value', bar: 'bar value' }}

@@ -17,13 +17,13 @@ function testPopup(path: string, title: string) {
     it('should open popup', () => {
       cy.get('button').first().click()
       cy.get('.tf-v1-popup').should('be.visible')
-      cy.get('.tf-v1-popup iframe').invoke('attr', 'src').should('contain', 'form.typeform.com/to/')
+      cy.get('.tf-v1-popup iframe').invoke('attr', 'src').should('contain', 'form.synergetics.com/to/')
     })
 
     it('should pass options as query param', () => {
       cy.get('.tf-v1-popup iframe')
         .invoke('attr', 'src')
-        .should('contain', 'typeform-embed=popup-blank&typeform-source=localhost&typeform-medium=demo-test')
+        .should('contain', 'synergetics-embed=popup-blank&synergetics-source=localhost&synergetics-medium=demo-test')
     })
 
     it('should pass hidden fields as hash', () => {
