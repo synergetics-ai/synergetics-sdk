@@ -57,7 +57,7 @@ const MyComponent = () => {
 }
 ```
 
-### How to get form id of your form?
+### How to get workflow id of your webplayer?
 
 You can find `<workflow-id>` from the public URL of your webplayer:
 
