@@ -41,7 +41,7 @@ import { PopupButton } from '@synergetics/embed-react'
 const MyComponent = () => {
   return (
     <PopupButton id="<workflow-id>" style={{ fontSize: 20 }} className="my-button">
-      click to open form in popup
+      click to open webplayer in popup
     </PopupButton>
   )
 }
@@ -57,11 +57,16 @@ const MyComponent = () => {
 }
 ```
 
-### How to get form id of your form?
+### How to get workflow id of your webplayer ?
 
-You can find `<workflow-id>` from the public URL of your webplayer:
+You can find `<workflow-id>` from your workflow management section present in your admin panel:
 
-- `https://web-3d-player.synergetics.ai/?wid=<workflow-id>`
+
+
+https://adminpanel.synergetics.ai/workflowmanagement
+
+<img width="1510" alt="image" src="https://github.com/user-attachments/assets/df0808e1-c022-47f0-aae3-aa3782d687b4">
+
 
 
 
@@ -80,7 +85,7 @@ Pass options as props to the component.
     bar: 'Bar Value',
   }}
   onReady={() => {
-    console.log('form ready')
+    console.log('Webplayer ready')
   }}
   enableSandbox
   transitiveSearchParams
