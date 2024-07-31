@@ -52,11 +52,16 @@ Via JavaScript for more control and specific integration.
 </script>
 ```
 
-### How to get workflow id of your webplayer?
+### How to get workflow id of your webplayer ?
 
-You can find `<workflow-id>` from the public URL of your webplayer:
+You can find `<workflow-id>` from your workflow management section present in your admin panel:
 
-- `https://https://web-3d-player.synergetics.ai/?wid=<workflow-id>`
+
+
+https://adminpanel.synergetics.ai/workflowmanagement
+
+<img width="1510" alt="image" src="https://github.com/user-attachments/assets/df0808e1-c022-47f0-aae3-aa3782d687b4">
+
 
 
 ### Limitations
