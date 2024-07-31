@@ -28,22 +28,22 @@ Import the lib, CSS and create your embed:
 ```javascript
 import { createWidget } from '@synergetics/embed'
 import '@synergetics/embed/build/css/widget.css'
-createWidget('<workflow-id>', { container: document.querySelector('#form') })
+createWidget('<workflow-id>', { container: document.querySelector('.container') })
 ```
 
 ### From CDN
 
-As HTML, the CSS is imported automatically. Place this code where you want to display your form.
+As HTML, the CSS is imported automatically. Place this code where you want to display your webplayer.
 
 ```html
-<div data-tf-widget="<workflow-id>"></div>
+<div data-wp-widget="<workflow-id>"></div>
 <script src="//embed.synergetics.com/next/embed.js"></script>
 ```
 
 Via JavaScript for more control and specific integration.
 
 ```html
-<button id="button">open form</button>
+<button id="button">open webplayer</button>
 <script src="//embed.synergetics.com/next/embed.js"></script>
 <link rel="stylesheet" href="//embed.synergetics.com/next/css/popup.css" />
 <script>
@@ -82,8 +82,8 @@ You can embed your synergetics on pages served over HTTPS or via HTTP on localho
 
 The `createWidget` method returns 2 functions:
 
-- **refresh** - reloads the form
-- **unmount** - unmounts the form (you should use this when you implement this lib in React manually)
+- **refresh** - reloads the webplayer
+- **unmount** - unmounts the webplayer (you should use this when you implement this lib in React manually)
 
 #### Modal windows: popup, slider, sidetab, popover
 
@@ -93,7 +93,7 @@ The `createWidget` method returns 2 functions:
 - popover: `createPopover('<workflow-id>', options)`
 
 ```html
-<button id="button">open form</button>
+<button id="button">open webplayer</button>
 <script>
   const { open, close, toggle, refresh } = createPopup('<workflow-id>')
   document.querySelector('#button').onclick = toggle
@@ -126,12 +126,11 @@ Closing and opening a webplayer in modal window will restart the progress from t
 | [source](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/callbacks)                                  | string                      | domain name of the site using the SDK                                                                                                                                                                                                                                                                  | domain name from `window.location`                            |
 | [medium](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/widget-js)                                  | string                      | name of the plugin built on top of the SDK                                                                                                                                                                                                                                                             | `"embed-sdk"`                                                 |
 | mediumVersion                                                                                                                | string                      | version of the plugin built on top of the SDK                                                                                                                                                                                                                                                          | `"next"`                                                      |
-| [transitiveSearchParams](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/transitive-params-js)       | string[] / boolean          | search parameters to be forwarded from host page to form, if `true` will forward all host page search parameters                                                                                                                                                                                       | `undefined`                                                   |
-| hideFooter                                                                                                                   | boolean                     | hide form progress bar and navigation buttons                                                                                                                                                                                                                                                          | `false`                                                       |
+| hideFooter                                                                                                                   | boolean                     | hide webplayer progress bar and navigation buttons                                                                                                                                                                                                                                                          | `false`                                                       |
 | hideHeaders                                                                                                                  | boolean                     | hide header that appears when you have a question group, or a long question                                                                                                                                                                                                                            | `false`                                                       |
-| domain                                                                                                                       | string                      | domain name of the environment the SDK should run against                                                                                                                                                                                                                                              | `"https://form.synergetics.com"`                                 |
-| [opacity](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/widget-inline)                             | number                      | form background opacity, number from 0 (fully transparent) 100 (fully opaque)                                                                                                                                                                                                                          | `100`                                                         |
-| [autoFocus](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/widget-focus)                            | boolean                     | enable form auto focus when loaded                                                                                                                                                                                                                                                                     | `false`                                                       |
+| domain                                                                                                                       | string                      | domain name of the environment the SDK should run against                                                                                                                                                                                                                                              | `"https://webplayer.synergetics.com"`                                 |
+| [opacity](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/widget-inline)                             | number                      | webplayer background opacity, number from 0 (fully transparent) 100 (fully opaque)                                                                                                                                                                                                                          | `100`                                                         |
+| [autoFocus](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/widget-focus)                            | boolean                     | enable webplayer auto focus when loaded                                                                                                                                                                                                                                                                     | `false`                                                       |
 | [open](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/load-js)                                      | string                      | open embed based on user action (see below)                                                                                                                                                                                                                                                            | `undefined`                                                   |
 | [openValue](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/time-js)                                 | number                      | based on `open` (see below)                                                                                                                                                                                                                                                                            | `undefined`                                                   |
 | [preventReopenOnClose](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/prevent-reopen-on-close-html) | boolean                     | prevent automatically re-opening the synergetics                                                                                                                                                                                                                                                          | `false`                                                       |
@@ -149,23 +148,21 @@ Closing and opening a webplayer in modal window will restart the progress from t
 | [tooltip](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/popover-html)                              | string                      | display tooltip text next to the button (popover only)                                                                                                                                                                                                                                                 | `undefined`                                                   |
 | [notificationDays](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/popover-html)                     | number                      | display red notification dot, hide for given number of days since popover is open (popover only)                                                                                                                                                                                                       | `undefined`                                                   |
 | [autoClose](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/autoclose)                               | number / boolean            | time (ms) until the embedded synergetics will automatically close after a respondent clicks the Submit button. (all embeds except widget)                                                                                                                                                                 | `undefined`                                                   |
-| [onReady](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/callbacks)                                 | function                    | fires when the form is loaded                                                                                                                                                                                                                                                                          | `undefined`                                                   |
+| [onReady](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/callbacks)                                 | function                    | fires when the webplayer is loaded                                                                                                                                                                                                                                                                          | `undefined`                                                   |
 | [onStarted](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/callbacks)                               | function                    | fires on the "submission start" event, contains `responseId` in the payload                                                                                                                                                                                                                            | `undefined`                                                   |
-| [onSubmit](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/callbacks)                                | function                    | fires when user submits the form                                                                                                                                                                                                                                                                       | `undefined`                                                   |
-| [onClose](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/callbacks)                                 | function                    | fires when the form is closed (when opened in modal window)                                                                                                                                                                                                                                            | `undefined`                                                   |
-| [onQuestionChanged](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/callbacks)                       | function                    | fires when user navigates between form questions                                                                                                                                                                                                                                                       | `undefined`                                                   |
-| [onHeightChanged](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/callbacks)                         | function                    | fires when form question height changes (eg. on navigation between questions or on error message)                                                                                                                                                                                                      | `undefined`                                                   |
+| [onSubmit](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/callbacks)                                | function                    | fires when user submits the webplayer                                                                                                                                                                                                                                                                       | `undefined`                                                   |
+| [onClose](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/callbacks)                                 | function                    | fires when the webplayer is closed (when opened in modal window)                                                                                                                                                                                                                                            | `undefined`                                                   |
+| [onQuestionChanged](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/callbacks)                       | function                    | fires when user navigates between webplayer questions                                                                                                                                                                                                                                                       | `undefined`                                                   |
+| [onHeightChanged](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/callbacks)                         | function                    | fires when webplayer question height changes (eg. on navigation between questions or on error message)                                                                                                                                                                                                      | `undefined`                                                   |
 | [onEndingButtonClick](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/callbacks)                     | function                    | fires when button on ending screen is clicked, disables button redirect functionality                                                                                                                                                                                                                  | `undefined`                                                   |
-| [autoResize](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/widget-autoresize)                      | string / boolean            | resize form to always fit the displayed question height, avoid scrollbars in the form (inline widget only), set min and max height separated by coma, eg. `"200,600"`                                                                                                                                  | `false`                                                       |
-| [shareGaInstance](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/widget-inline)                     | string / boolean            | shares Google Analytics instance of the host page with embedded synergetics, you can provide your Google Analytics ID to specify which instance to share (if you have more than one in your page)                                                                                                         | `false`                                                       |
-| [inlineOnMobile](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/widget-inline)                      | boolean                     | removes placeholder welcome screen in mobile and makes form show inline instead of fullscreen                                                                                                                                                                                                          | `false`                                                       |
+| [autoResize](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/widget-autoresize)                      | string / boolean            | resize webplayer to always fit the displayed question height, avoid scrollbars in the webplayer (inline widget only), set min and max height separated by coma, eg. `"200,600"`                                                                                                                                  | `false`                                                       |
+| [inlineOnMobile](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/widget-inline)                      | boolean                     | removes placeholder welcome screen in mobile and makes webplayer show inline instead of fullscreen                                                                                                                                                                                                          | `false`                                                       |
 | [iframeProps](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/widget-js)                             | object                      | HTML attributes to be passed directly to the iframe with synergetics                                                                                                                                                                                                                                      | `undefined`                                                   |
 | [buttonProps](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/sidetab-html)                          | object                      | HTML attributes to be passed directly to the button created by embed SDK (only for popover and sidetab)                                                                                                                                                                                                | `undefined`                                                   |
 | [lazy](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/widget-lazy-html)                             | boolean                     | enable lazy loading (for widget only), synergetics starts loading when user scrolls to it, [see demo](https://github.com/synergetics/embed-demo/blob/main/demo-html/widget-lazy-html/index.html)                                                                                                             | `false`                                                       |
-| [keepSession](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/keep-session-html)                     | boolean                     | preserve form state when modal window is closed (and re-opened)                                                                                                                                                                                                                                        | `false`                                                       |
+| [keepSession](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/keep-session-html)                     | boolean                     | preserve webplayer state when modal window is closed (and re-opened)                                                                                                                                                                                                                                        | `false`                                                       |
 | redirectTarget                                                                                                               | string                      | target for [synergeticss with redirect](https://www.synergetics.com/help/a/redirect-on-completion-or-redirect-through-endings-360060589532/), valid values are `_self`, `_top`, `_blank` or `_parent` ([see docs on anchor target](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target)) | `_parent`                                                     |
 | disableScroll                                                                                                                | boolean                     | disable navigation between questions via scrolling and swiping                                                                                                                                                                                                                                         | `false`                                                       |
-| hubspot                                                                                                                      | boolean                     | enable HubSpot source tracking - for details see article [Set up source tracking for HubSpot](https://www.synergetics.com/help/a/set-up-source-tracking-for-hub-spot-4413167079316/)                                                                                                                      | `false`                                                       |
 | [fullScreen](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/widget-full-screen-html)                | boolean                     | enable full screen view, set `<body>` size, resize on screen resize - also when browser navbars are displayed on mobile                                                                                                                                                                                | `false`                                                       |
 | [preselect](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/preselect-html)                          | object                      | preselect answer to the first question ([more info in help center](https://www.synergetics.com/help/a/preselect-answers-through-synergetics-links-for-advanced-users-4410202791060/))                                                                                                                        | `undefined`                                                   |
 | [respectOpenModals](https://codesandbox.io/s/github/synergetics/embed-demo/tree/main/demo-html/respect-js.html)                 | `all` / `same`              | do not open if there already is a modal with synergetics open (`same` - same form, `all` - any form)                                                                                                                                                                                                      | `undefined`                                                   |
@@ -173,13 +170,13 @@ Closing and opening a webplayer in modal window will restart the progress from t
 
 ### Options in plain HTML embed
 
-- to embed via HTML without writing JavaScript code, use `data-tf-widget="<workflow-id>"` for widget embed (see example above)
-- define options as data attributes with `data-tf-` prefix and dashes in name (eg. `autoFocus` becomes `data-tf-auto-focus`)
-- set a boolean property to `true` by omitting attribute value, (eg. `<div ... data-tf-disable-footer></div>`
-- pass function name for callbacks, eg. `data-tf-on-ready="myReadyFunction"` if this function is available on global scope (eg. `window`)
-- to pass `string[]` use comma-separated string, eg. `transitiveSearchParams: ['foo', 'bar']` becomes `data-tf-transitive-search-params="foo,bar"`
-- to pass `object` pass comma-separated key=value pairs, eg. `hidden: { foo: "f", bar: "b" }` becomes `data-tf-hidden="foo=f,bar=b"`
-  - **Note:** since commas `,` are used as delimiter for each value you will need to escape them with backward slash, eg. `data-tf-hidden="foo=foo\,bar"`. In JavaScript you don't need to escape it.
+- to embed via HTML without writing JavaScript code, use `data-wp-widget="<workflow-id>"` for widget embed (see example above)
+- define options as data attributes with `data-wp-` prefix and dashes in name (eg. `autoFocus` becomes `data-wp-auto-focus`)
+- set a boolean property to `true` by omitting attribute value, (eg. `<div ... data-wp-disable-footer></div>`
+- pass function name for callbacks, eg. `data-wp-on-ready="myReadyFunction"` if this function is available on global scope (eg. `window`)
+- to pass `string[]` use comma-separated string, eg. `transitiveSearchParams: ['foo', 'bar']` becomes `data-wp-transitive-search-params="foo,bar"`
+- to pass `object` pass comma-separated key=value pairs, eg. `hidden: { foo: "f", bar: "b" }` becomes `data-wp-hidden="foo=f,bar=b"`
+  - **Note:** since commas `,` are used as delimiter for each value you will need to escape them with backward slash, eg. `data-wp-hidden="foo=foo\,bar"`. In JavaScript you don't need to escape it.
 
 ### Custom Launch Options
 
@@ -194,21 +191,21 @@ Properties `open` and `openValue` apply only to embed types that are opened by u
   - To detect user is trying to exit the page we detect upwards mouse movement in top part of the website. The threshold defines height of this area. Useful when you have navigation in top part of your website and mouse movement in that area does not necessarily indicate exit intent.
 - when a user scrolls the page
   - `open: 'scroll'`
-  - `openValue` percentage of page scrolled (0 - 100) to open the form
+  - `openValue` percentage of page scrolled (0 - 100) to open the webplayer
 - after time elapsed
   - `open: 'time'`
-  - `openValue` number of milliseconds to wait before opening the form
+  - `openValue` number of milliseconds to wait before opening the webplayer
 
 For details see [behavioral demo](../demo-html/public/behavioral-html).
 
 ### Share Google Analytics Instance
 
-You can use `shareGaInstance: true` (or `data-tf-share-ga-instance`) attribute if both your page and your synergetics are using Google Analytics. This will make sure the session is shared and Google Analytics will track only 1 user when they visit you page with an embedded synergetics.
+You can use `shareGaInstance: true` (or `data-wp-share-ga-instance`) attribute if both your page and your synergetics are using Google Analytics. This will make sure the session is shared and Google Analytics will track only 1 user when they visit you page with an embedded synergetics.
 
 If you have more than 1 Google Analytics tracking codes in your website you can provide an ID to specify which tracker to use, eg:
 
 ```html
-<div data-tf-widget="<workflow-id>" data-tf-share-ga-instance="UA-XXXXXX-XX"></div>
+<div data-wp-widget="<workflow-id>" data-wp-share-ga-instance="UA-XXXXXX-XX"></div>
 ```
 
 or
@@ -219,7 +216,7 @@ createPopup('<workflow-id>', { container, shareGaInstance: 'UA-XXXXXX-XX' })
 
 ### Callbacks
 
-You can listen to form events by providing callback methods:
+You can listen to webplayer events by providing callback methods:
 
 ```html
 <button id="btn">click</button>
@@ -234,21 +231,21 @@ You can listen to form events by providing callback methods:
       console.log(`Webplayer ${workflowId} started with response ID ${responseId}`)
     },
     onQuestionChanged: ({ workflowId, ref }) => {
-      console.log(`Question in form ${workflowId} changed to ${ref}`)
+      console.log(`Question in webplayer ${workflowId} changed to ${ref}`)
     },
     onHeightChanged: ({ workflowId, ref, height }) => {
-      console.log(`Question ${ref} in form ${workflowId} has height ${height}px now`)
+      console.log(`Question ${ref} in webplayer ${workflowId} has height ${height}px now`)
     },
     onSubmit: ({ workflowId, responseId }) => {
-      console.log(`Form ${workflowId} submitted, response id: ${responseId}`)
+      console.log(`Webplayer ${workflowId} submitted, response id: ${responseId}`)
       // to retrieve the response use `responseId` (you have to do it server-side)
       // more details: https://developer.synergetics.com/responses/
     },
     onClose: ({ workflowId }) => {
-      console.log(`Modal window with form ${workflowId} was closed`)
+      console.log(`Modal window with webplayer ${workflowId} was closed`)
     }
     onEndingButtonClick: ({ workflowId, ref }) => {
-      console.log(`Ending button clicked in form ${workflowId}`)
+      console.log(`Ending button clicked in webplayer ${workflowId}`)
 
       // for plans with "Redirect from ending screen" feature you also receive `ref`:
       console.log(`Ending button clicked in end screen ${ref}`)
@@ -260,7 +257,7 @@ You can listen to form events by providing callback methods:
 </script>
 ```
 
-Callback method receive payload object from the form. Each payload contains form ID to identify which form sent the event (see chaining synergeticss below):
+Callback method receive payload object from the webplayer. Each payload contains workflow ID to identify which workflow sent the event (see chaining synergeticss below):
 
 - onReady
   - `workflowId` (string)
@@ -325,12 +322,12 @@ This is related to all embeds:
 You can chain multiple synergeticss inside an embed. You need to [setup a redirect to another synergetics](https://www.synergetics.com/help/a/redirect-to-url-or-redirect-with-end-screens-360060589532/):
 
 - make sure to use URL with `synergetics.com` domain in case you have a custom domain set up
-- set `redirectTarget` / `data-tf-redirect-target` to `_self` to make the redirect inside the embed iframe
+- set `redirectTarget` / `data-wp-redirect-target` to `_self` to make the redirect inside the embed iframe
 
 When you chain multiple synergeticss they will be all displayed inside the embed and all embed options and callbacks will be preserved.
-You can use `formId` in the callback payload to identify which form is currently displayed.
+You can use `workflowId` in the callback payload to identify which workflow is currently displayed.
 
-### Loading and reloading embedded forms
+### Loading and reloading embedded webplayers
 
 When the library loads it will initialize all HTML embed codes already present in the page.
 However sometimes you might want to add HTML snippet to your page later and initialize it after it was added.
@@ -398,19 +395,7 @@ Run unit tests:
 yarn test
 ```
 
-Run functional tests via Cypress:
 
-```bash
-yarn cy:run   # run in background (headless)
-yarn cy:open  # open cypress UI
-```
-
-Run visual tests via Cypress and VRT:
-
-```bash
-yarn cy:visual    # run in background (headless)
-yarn cy:open:vrt  # open cypress UI (with support for VRT)
-```
 
 _Note:_ You need access to our [self-hosted Visual Regression Tracker (aka VRT)](https://github.com/Visual-Regression-Tracker/Visual-Regression-Tracker). Copy `vrt.example.json` to `vrt.json` and provide `apiKey` to run visual tests locally.
 
